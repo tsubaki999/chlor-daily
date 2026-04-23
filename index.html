@@ -392,6 +392,98 @@ footer strong { color: var(--text-mute); font-weight: 700; }
   border-color: var(--accent);
 }
 
+/* Google Maps リンク化した座標 */
+.gmap-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed currentColor;
+  transition: color 0.15s, border-bottom-style 0.15s;
+  white-space: nowrap;
+}
+.gmap-link:hover {
+  color: var(--accent);
+  border-bottom-style: solid;
+}
+.hero-coord .gmap-link {
+  color: white;
+  border-bottom-color: rgba(255,255,255,0.4);
+}
+.hero-coord .gmap-link:hover { border-bottom-color: white; }
+
+/* ライブ海況セクション */
+.live-grid {
+  display: grid;
+  gap: 14px;
+}
+.live-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.live-card-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+.live-card-head .live-src {
+  font-size: 10px; opacity: 0.85; font-weight: 400;
+  letter-spacing: 0.3px;
+}
+.live-card-head .live-badge {
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.6; }
+}
+.live-img-wrap {
+  position: relative;
+  background: #000;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.live-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+}
+.live-iframe-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.live-iframe-wrap iframe {
+  width: 100%; height: 100%; border: 0; display: block;
+}
+.live-card-note {
+  padding: 10px 14px;
+  font-size: 11px;
+  color: var(--text-mute);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+}
+.live-card-note a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--primary);
+}
+.live-card-note a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+@media (min-width: 720px) {
+  .live-grid { grid-template-columns: 1fr 1fr; }
+}
+
 /* Lightbox for panel image */
 #lightbox {
   display: none;
@@ -518,7 +610,7 @@ footer strong { color: var(--text-mute); font-weight: 700; }
     <span>Chlor.  南房総 海況ダイジェスト</span>
   </div>
   <h1>クロア 海況ダイジェスト</h1>
-  <div class="subtitle">2026-04-24 (金)  /  南房総海域  /  Copernicus Marine 予報  /  生成: 2026-04-23 11:16 JST</div>
+  <div class="subtitle">2026-04-24 (金)  /  南房総海域  /  Copernicus Marine 予報  /  生成: 2026-04-23 11:22 JST</div>
 
   <a href="https://forms.gle/XXXXXXXX" target="_blank" class="catch-btn">🎣 釣果を報告する</a>
 
@@ -529,7 +621,7 @@ footer strong { color: var(--text-mute); font-weight: 700; }
     <div class="hero-species"><span class="hero-medal">🥇</span>タチウオ</div>
     <div class="hero-meta">
       <div><span class="lab">SCORE</span><span class="val">0.440</span></div>
-      <div><span class="lab">座標</span><span class="val">35.083°N  139.833°E</span></div>
+      <div><span class="lab">座標</span><span class="val hero-coord"><a href="https://www.google.com/maps?q=35.0833,139.8333" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.833°E</a></span></div>
     </div>
   </div>
 
@@ -537,7 +629,7 @@ footer strong { color: var(--text-mute); font-weight: 700; }
 
   <section>
     <h2><span class="h2-icon">🏆</span>魚種ランキング</h2>
-    <div class="rank-grid"><div class="rank-item"><div class="rank-medal g">1</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#6B21A8"></span>タチウオ</div><div class="rank-meta">内湾OK・浦賀水道〜湾奥 / SST中心18℃</div><div class="rank-meta" style="font-size:10px;">35.083°N  139.833°E</div></div><div class="rank-score">0.440</div></div><div class="rank-item"><div class="rank-medal s">2</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#1F4E8C"></span>ブリ</div><div class="rank-meta">寒ブリ期・冷水性 / SST中心17℃</div><div class="rank-meta" style="font-size:10px;">35.250°N  139.833°E</div></div><div class="rank-score">0.398</div></div><div class="rank-item"><div class="rank-medal b">3</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#C2410C"></span>カツオ</div><div class="rank-meta">春の初鰹 / SST中心21℃</div><div class="rank-meta" style="font-size:10px;">35.083°N  139.750°E</div></div><div class="rank-score">0.189</div></div><div class="rank-item na"><div class="rank-medal na">—</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#7C1D3A"></span>マグロ</div><div class="rank-meta">habitat マスク内に好適点なし</div></div><div class="rank-score">—</div></div><div class="rank-item na"><div class="rank-medal na">—</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#047857"></span>ヒラマサ</div><div class="rank-meta">habitat マスク内に好適点なし</div></div><div class="rank-score">—</div></div></div>
+    <div class="rank-grid"><div class="rank-item"><div class="rank-medal g">1</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#6B21A8"></span>タチウオ</div><div class="rank-meta">内湾OK・浦賀水道〜湾奥 / SST中心18℃</div><div class="rank-meta" style="font-size:10px;"><a href="https://www.google.com/maps?q=35.0833,139.8333" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.833°E</a></div></div><div class="rank-score">0.440</div></div><div class="rank-item"><div class="rank-medal s">2</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#1F4E8C"></span>ブリ</div><div class="rank-meta">寒ブリ期・冷水性 / SST中心17℃</div><div class="rank-meta" style="font-size:10px;"><a href="https://www.google.com/maps?q=35.2500,139.8333" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.250°N  139.833°E</a></div></div><div class="rank-score">0.398</div></div><div class="rank-item"><div class="rank-medal b">3</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#C2410C"></span>カツオ</div><div class="rank-meta">春の初鰹 / SST中心21℃</div><div class="rank-meta" style="font-size:10px;"><a href="https://www.google.com/maps?q=35.0833,139.7500" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.750°E</a></div></div><div class="rank-score">0.189</div></div><div class="rank-item na"><div class="rank-medal na">—</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#7C1D3A"></span>マグロ</div><div class="rank-meta">habitat マスク内に好適点なし</div></div><div class="rank-score">—</div></div><div class="rank-item na"><div class="rank-medal na">—</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#047857"></span>ヒラマサ</div><div class="rank-meta">habitat マスク内に好適点なし</div></div><div class="rank-score">—</div></div></div>
   </section>
 
   <section>
@@ -547,7 +639,7 @@ footer strong { color: var(--text-mute); font-weight: 700; }
         <div class="species-row header">
           <div></div><div>魚種 / 位置</div><div>スコア</div>
         </div>
-        <div class="species-row"><div class="sp-bar" style="background:#1F4E8C"></div><div class="sp-txt"><span class="sp-rank">#1</span>ブリ <span class="sp-loc">35.250°N 139.833°E</span></div><div class="sp-score">0.398</div></div><div class="species-row"><div class="sp-bar" style="background:#1F4E8C"></div><div class="sp-txt"><span class="sp-rank">#2</span>ブリ <span class="sp-loc">35.167°N 139.833°E</span></div><div class="sp-score">0.389</div></div><div class="species-row"><div class="sp-bar" style="background:#1F4E8C"></div><div class="sp-txt"><span class="sp-rank">#3</span>ブリ <span class="sp-loc">35.083°N 139.833°E</span></div><div class="sp-score">0.378</div></div><div class="species-row na"><div class="sp-bar" style="background:#7C1D3A"></div><div class="sp-txt">マグロ — 好適点なし</div></div><div class="species-row"><div class="sp-bar" style="background:#C2410C"></div><div class="sp-txt"><span class="sp-rank">#1</span>カツオ <span class="sp-loc">35.083°N 139.750°E</span></div><div class="sp-score">0.189</div></div><div class="species-row na"><div class="sp-bar" style="background:#047857"></div><div class="sp-txt">ヒラマサ — 好適点なし</div></div><div class="species-row"><div class="sp-bar" style="background:#6B21A8"></div><div class="sp-txt"><span class="sp-rank">#1</span>タチウオ <span class="sp-loc">35.083°N 139.833°E</span></div><div class="sp-score">0.440</div></div><div class="species-row"><div class="sp-bar" style="background:#6B21A8"></div><div class="sp-txt"><span class="sp-rank">#2</span>タチウオ <span class="sp-loc">35.167°N 139.750°E</span></div><div class="sp-score">0.440</div></div><div class="species-row"><div class="sp-bar" style="background:#6B21A8"></div><div class="sp-txt"><span class="sp-rank">#3</span>タチウオ <span class="sp-loc">35.250°N 139.750°E</span></div><div class="sp-score">0.434</div></div>
+        <div class="species-row"><div class="sp-bar" style="background:#1F4E8C"></div><div class="sp-txt"><span class="sp-rank">#1</span>ブリ <span class="sp-loc"><a href="https://www.google.com/maps?q=35.2500,139.8333" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.250°N  139.833°E</a></span></div><div class="sp-score">0.398</div></div><div class="species-row"><div class="sp-bar" style="background:#1F4E8C"></div><div class="sp-txt"><span class="sp-rank">#2</span>ブリ <span class="sp-loc"><a href="https://www.google.com/maps?q=35.1667,139.8333" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.167°N  139.833°E</a></span></div><div class="sp-score">0.389</div></div><div class="species-row"><div class="sp-bar" style="background:#1F4E8C"></div><div class="sp-txt"><span class="sp-rank">#3</span>ブリ <span class="sp-loc"><a href="https://www.google.com/maps?q=35.0833,139.8333" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.833°E</a></span></div><div class="sp-score">0.378</div></div><div class="species-row na"><div class="sp-bar" style="background:#7C1D3A"></div><div class="sp-txt">マグロ — 好適点なし</div></div><div class="species-row"><div class="sp-bar" style="background:#C2410C"></div><div class="sp-txt"><span class="sp-rank">#1</span>カツオ <span class="sp-loc"><a href="https://www.google.com/maps?q=35.0833,139.7500" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.750°E</a></span></div><div class="sp-score">0.189</div></div><div class="species-row na"><div class="sp-bar" style="background:#047857"></div><div class="sp-txt">ヒラマサ — 好適点なし</div></div><div class="species-row"><div class="sp-bar" style="background:#6B21A8"></div><div class="sp-txt"><span class="sp-rank">#1</span>タチウオ <span class="sp-loc"><a href="https://www.google.com/maps?q=35.0833,139.8333" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.833°E</a></span></div><div class="sp-score">0.440</div></div><div class="species-row"><div class="sp-bar" style="background:#6B21A8"></div><div class="sp-txt"><span class="sp-rank">#2</span>タチウオ <span class="sp-loc"><a href="https://www.google.com/maps?q=35.1667,139.7500" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.167°N  139.750°E</a></span></div><div class="sp-score">0.440</div></div><div class="species-row"><div class="sp-bar" style="background:#6B21A8"></div><div class="sp-txt"><span class="sp-rank">#3</span>タチウオ <span class="sp-loc"><a href="https://www.google.com/maps?q=35.2500,139.7500" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.250°N  139.750°E</a></span></div><div class="sp-score">0.434</div></div>
       </div>
     </div>
   </section>
@@ -557,6 +649,8 @@ footer strong { color: var(--text-mute); font-weight: 700; }
     <div class="insight"><strong>🎣 タチウオ が本日の主戦場。</strong> スコア 0.44、他魚種より条件優位。出船時は魚種を絞ると吉。</div>
     <div class="caution"><strong>⚠ 好適点なし：</strong> マグロ・ヒラマサ。habitat マスクと SST 条件を満たす点が見つかっていません。</div>
   </section>
+
+  <section><h2><span class="h2-icon">📡</span>ライブ海況</h2><div class="live-grid"><div class="live-card"><div class="live-card-head"><span>🛰️ ひまわり 衛星画像（True Color）</span><span class="live-badge">LIVE</span></div><div class="live-img-wrap"><img src="https://www.data.jma.go.jp/mscweb/data/himawari/img/jpn/jpn_trm.jpg?t=202604231122" alt="ひまわり日本域 True Color" onclick="openLiveImage(this.src)" loading="lazy"></div><div class="live-card-note">気象庁 ひまわり8/9号、10分ごと更新。<a href="https://www.data.jma.go.jp/mscweb/data/himawari/sat_img.php?area=jpn" target="_blank" rel="noopener">他のバンドを見る →</a></div></div><div class="live-card"><div class="live-card-head"><span>🌊 Windy 波浪オーバーレイ</span><span class="live-src">windy.com</span></div><div class="live-iframe-wrap"><iframe src="https://embed.windy.com/embed2.html?lat=35.1&lon=140.0&zoom=8&level=surface&overlay=waves&menu=&message=&marker=true&metricWind=m%2Fs&metricTemp=%C2%B0C&type=map&location=coordinates&detail=&detailLat=35.1&detailLon=140.0" loading="lazy" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="live-card-note">波高・方向のリアルタイム オーバーレイ。<a href="https://www.windy.com/?waves,35.100,140.000,8" target="_blank" rel="noopener">Windy で全画面 →</a>  •  <a href="https://www.windy.com/-Webcams/cameras?35.100,140.000,9" target="_blank" rel="noopener">周辺ライブカメラを探す →</a></div></div></div></section>
 
   <section><h2><span class="h2-icon">🎣</span>今週の釣果報告</h2><div class="catch-empty">まだ報告はありません。釣行されたら上のボタンから記録ください。マグレでも、ボウズでも、予測との「答え合わせ」がクロアの精度向上に直結します。</div></section>
 
@@ -592,6 +686,11 @@ footer strong { color: var(--text-mute); font-weight: 700; }
   window.openLightbox = function() {
     if (!panel) return;
     lbImg.src = panel.src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  window.openLiveImage = function(src) {
+    lbImg.src = src;
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   };
