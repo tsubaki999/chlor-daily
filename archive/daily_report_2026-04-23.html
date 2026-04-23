@@ -222,6 +222,61 @@ footer {
   pointer-events: none;
 }
 
+/* 釣果報告ボタン & テーブル */
+.catch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
+  transition: transform 0.1s;
+  margin-bottom: 18px;
+}
+.catch-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(217, 119, 6, 0.4); }
+.catch-btn:active { transform: translateY(0); }
+
+.catch-summary {
+  font-size: 12px; color: #4A5568;
+  padding: 8px 12px; background: #FEF3C7; border-radius: 6px;
+  margin-bottom: 8px; border-left: 3px solid #F59E0B;
+}
+.catch-list {
+  background: white; border-radius: 10px; border: 1px solid #E2E8F0;
+  overflow: hidden;
+}
+.catch-row {
+  display: grid;
+  grid-template-columns: 4px 80px 80px 60px 1fr 90px;
+  gap: 8px;
+  padding: 9px 12px;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 12px;
+  align-items: center;
+}
+.catch-row:last-child { border-bottom: none; }
+.catch-row.header {
+  background: #0A3D62; color: white;
+  font-weight: 700; font-size: 11px;
+}
+.catch-row .c-bar { height: 18px; border-radius: 2px; }
+.catch-row .c-name { color: #64748B; font-size: 11px; }
+.catch-row .c-loc { color: #64748B; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.catch-empty {
+  padding: 16px;
+  background: #F8FAFC;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #64748B;
+  text-align: center;
+  line-height: 1.8;
+}
+
 /* モバイル専用調整 */
 @media (max-width: 560px) {
   body { padding: 16px 12px; }
@@ -231,6 +286,8 @@ footer {
   .rank-item { padding: 10px 12px; }
   .rank-score { font-size: 16px; }
   .species-row { font-size: 12px; padding: 9px 12px; }
+  .catch-list { overflow-x: auto; }
+  .catch-row { min-width: 460px; }
 }
 </style>
 </head>
@@ -241,7 +298,9 @@ footer {
     <span>Chlor. 日次レポート</span>
   </div>
   <h1>クロア 海況ダイジェスト</h1>
-  <div class="subtitle">2026-04-24 (金)  /  南房総海域  /  Copernicus Marine 予報  /  生成: 2026-04-23 10:09 JST</div>
+  <div class="subtitle">2026-04-24 (金)  /  南房総海域  /  Copernicus Marine 予報  /  生成: 2026-04-23 10:20 JST</div>
+
+  
 
   <div class="hero">
     <div class="hero-label">今日のおすすめ魚種</div>
@@ -276,6 +335,8 @@ footer {
     <div class="insight"><strong>🎣 タチウオ が本日の主戦場。</strong> スコア 0.44、他魚種より条件優位。出船時は魚種を絞ると吉。</div>
     <div class="caution"><strong>⚠ 好適点なし：</strong> マグロ・ヒラマサ。habitat マスクと SST 条件を満たす点が見つかっていません。</div>
   </section>
+
+  
 
   </div><!-- /.container narrow -->
 
