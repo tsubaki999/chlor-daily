@@ -166,6 +166,61 @@ h2 {
 .horizon-note {
   font-size: 10px; color: #94A3B8; margin-top: 2px; font-style: italic;
 }
+.h-wx {
+  display: flex; gap: 8px;
+  margin-top: 6px; padding-top: 6px;
+  border-top: 1px dashed #E2E8F0;
+  font-size: 10px;
+}
+.h-wx-item { color: #64748B; flex: 1; }
+.h-wx-item.caution { color: #D97706; font-weight: 600; }
+.h-wx-item.warn { color: #DC2626; font-weight: 700; }
+
+/* 今日の海況コンディション バナー */
+.conditions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 4px;
+}
+@media (max-width: 560px) {
+  .conditions { grid-template-columns: 1fr 1fr; }
+  .conditions .cond-card:nth-child(3) { grid-column: 1 / -1; }
+}
+.cond-card {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid #10B981;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.cond-label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #64748B;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.cond-val {
+  font-size: 28px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.cond-unit {
+  font-size: 14px;
+  font-weight: 400;
+  color: #64748B;
+  margin-left: 4px;
+}
+.cond-note {
+  font-size: 10px;
+  color: #94A3B8;
+  margin-top: 6px;
+  font-style: italic;
+}
 
 footer {
   text-align: center; font-size: 11px; color: #94A3B8;
@@ -298,9 +353,11 @@ footer {
     <span>Chlor. 日次レポート</span>
   </div>
   <h1>クロア 海況ダイジェスト</h1>
-  <div class="subtitle">2026-04-24 (金)  /  南房総海域  /  Copernicus Marine 予報  /  生成: 2026-04-23 10:20 JST</div>
+  <div class="subtitle">2026-04-24 (金)  /  南房総海域  /  Copernicus Marine 予報  /  生成: 2026-04-23 10:42 JST</div>
 
-  
+  <a href="https://forms.gle/XXXXXXXX" target="_blank" class="catch-btn">🎣 釣果を報告する</a>
+
+  <section><h2>今日の海況コンディション <span style="font-size:11px;color:#94A3B8;font-weight:400;">@ 南房総代表点（35.10°N 140.00°E）</span></h2><div class="conditions"><div class="cond-card" style="border-left-color:#EF4444"><div class="cond-label">波高 max</div><div class="cond-val" style="color:#EF4444">1.4<span class="cond-unit">m</span></div><div class="cond-note">カヤック好適 ≤ 0.6m</div></div><div class="cond-card" style="border-left-color:#F59E0B"><div class="cond-label">風速 max</div><div class="cond-val" style="color:#F59E0B">4.2<span class="cond-unit">m/s</span></div><div class="cond-note">カヤック好適 ≤ 4m/s</div></div><div class="cond-card" style="border-left-color:#F59E0B"><div class="cond-label">出船判定</div><div class="cond-val" style="color:#F59E0B;font-size:22px">CAUTION</div><div class="cond-note">瞬間風速 12.5 m/s</div></div></div></section>
 
   <div class="hero">
     <div class="hero-label">今日のおすすめ魚種</div>
@@ -311,7 +368,7 @@ footer {
     </div>
   </div>
 
-  <section><h2>直近 5 日間の見通し</h2><div class="horizon"><div class="h-card today"><div class="h-date">4/24 (金)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:44%;background:#6B21A8"></div></div></div><div class="h-card"><div class="h-date">4/25 (土)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:43%;background:#6B21A8"></div></div></div><div class="h-card"><div class="h-date">4/26 (日)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:43%;background:#6B21A8"></div></div></div><div class="h-card"><div class="h-date">4/27 (月)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:44%;background:#6B21A8"></div></div></div><div class="h-card"><div class="h-date">4/28 (火)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:43%;background:#6B21A8"></div></div></div></div><div class="horizon-note">※ 各日 TOP1 魚種とスコア。Copernicus +10日予報ベース。</div></section>
+  <section><h2>直近 5 日間の見通し</h2><div class="horizon"><div class="h-card today"><div class="h-date">4/24 (金)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:44%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.4m</span><span class="h-wx-item caution">💨 4.2m/s</span></div></div><div class="h-card"><div class="h-date">4/25 (土)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:43%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.1m</span><span class="h-wx-item">💨 2.7m/s</span></div></div><div class="h-card"><div class="h-date">4/26 (日)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:43%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.0m</span><span class="h-wx-item caution">💨 4.1m/s</span></div></div><div class="h-card"><div class="h-date">4/27 (月)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:44%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.2m</span><span class="h-wx-item caution">💨 6.2m/s</span></div></div><div class="h-card"><div class="h-date">4/28 (火)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.440</div><div class="h-bar-wrap"><div class="h-bar" style="width:43%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.6m</span><span class="h-wx-item caution">💨 4.2m/s</span></div></div></div><div class="horizon-note">※ 各日 TOP1 魚種とスコア。Copernicus +10日予報ベース。</div></section>
 
   <section>
     <h2>魚種ランキング</h2>
@@ -336,7 +393,7 @@ footer {
     <div class="caution"><strong>⚠ 好適点なし：</strong> マグロ・ヒラマサ。habitat マスクと SST 条件を満たす点が見つかっていません。</div>
   </section>
 
-  
+  <section><h2>今週の釣果報告</h2><div class="catch-empty">まだ報告はありません。釣行されたら上のボタンから記録ください。マグレでも、ボウズでも、予測との「答え合わせ」がクロアの精度向上に直結します。</div></section>
 
   </div><!-- /.container narrow -->
 
