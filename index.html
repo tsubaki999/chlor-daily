@@ -1145,6 +1145,49 @@ footer strong { color: var(--text-mute); font-weight: 700; }
   margin-top: 2px;
 }
 
+/* データソース＋バージョン 控えめ 最下部バー */
+.bottom-attrib {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 8px 10px;
+  margin-top: 10px;
+  background: var(--bg-soft);
+  border-radius: 6px;
+  font-size: 10px;
+  color: var(--text-subtle);
+}
+.bottom-attrib .ba-title { color: var(--text-mute); font-weight: 700; letter-spacing: 0.5px; }
+.bottom-attrib .ba-src {
+  padding: 2px 8px; background: var(--surface);
+  border: 0.5px solid var(--border); border-radius: 999px;
+  font-weight: 600; color: var(--text-mute);
+}
+
+/* 各ページ内要素 さらに圧縮（1 viewport 完全収納を目指す） */
+.swipe-page .hero { padding: 14px 16px; }
+.swipe-page .hero-label { font-size: 10px; margin-bottom: 4px; }
+.swipe-page .hero-species { font-size: 26px; }
+.swipe-page .hero-medal { font-size: 24px; }
+.swipe-page .hero-meta { margin-top: 10px; padding-top: 10px; gap: 16px; }
+.swipe-page .hero-meta .val { font-size: 14px; }
+.swipe-page .rank-grid { gap: 6px; }
+.swipe-page .rank-item { padding: 8px 12px; gap: 10px; }
+.swipe-page .rank-medal { width: 30px; height: 30px; font-size: 14px; }
+.swipe-page .rank-name { font-size: 14px; }
+.swipe-page .rank-meta { font-size: 10px; }
+.swipe-page .rank-score { font-size: 18px; }
+.swipe-page .insight, .swipe-page .caution { padding: 10px 12px; font-size: 12px; }
+.swipe-page .tide-big { font-size: 22px; }
+.swipe-page .cal-header, .swipe-page .cal-row { padding: 3px 0; }
+.swipe-page .cal-cell { height: 14px; }
+.swipe-page .planner-row { padding: 10px 12px; gap: 10px; }
+.swipe-page .planner-date { font-size: 13px; }
+.swipe-page .planner-score { font-size: 18px; }
+.swipe-page .live-iframe-wrap { aspect-ratio: 3 / 2; }
+
 /* 旧 Quick View モード（保持 - 内部で残置） */
 body.quick-mode .details-area {
   display: none;
@@ -1240,32 +1283,24 @@ body.quick-mode .master-toggle::before { content: '▼ '; }
 }
 body.quick-mode .quick-section-hint { display: block; }
 
-/* モバイル アコーディオン（折りたたみ） */
+/* 旧アコーディオン（常時展開・クリック不可に） */
 details.sec {
-  margin-bottom: 22px;
+  margin-bottom: 0;
 }
 details.sec > summary {
   list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px 0;
+  cursor: default;
+  pointer-events: none;
+  padding: 0;
   user-select: none;
+  display: block;
 }
 details.sec > summary::-webkit-details-marker { display: none; }
-details.sec > summary::after {
-  content: '▼';
-  font-size: 10px;
-  color: var(--text-subtle);
-  transition: transform 0.2s;
-  padding: 4px 8px;
-  margin-left: 8px;
-}
-details.sec[open] > summary::after { transform: rotate(180deg); }
-details.sec > summary h2 { margin: 0 0 4px 0; }
+details.sec > summary::after { display: none !important; }
+details.sec > summary h2 { margin: 0 0 8px 0; pointer-events: auto; }
 details.sec > .sec-body {
-  padding-top: 10px;
+  padding-top: 0;
+  display: block !important;
 }
 
 /* 週間トレンドチャート */
@@ -1403,7 +1438,7 @@ details.sec > .sec-body {
     <div class="sec-body"><div class="rank-grid"><div class="rank-item"><div class="rank-medal g">1</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#6B21A8"></span>タチウオ</div><div class="rank-meta">内湾OK・浦賀水道〜湾奥 / SST中心18℃</div><div class="rank-meta" style="font-size:10px;"><a href="https://www.google.com/maps?q=35.0833,139.8333" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.833°E</a></div></div><div class="rank-score">0.419</div></div><div class="rank-item"><div class="rank-medal s">2</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#1F4E8C"></span>ブリ</div><div class="rank-meta">寒ブリ期・冷水性 / SST中心17℃</div><div class="rank-meta" style="font-size:10px;"><a href="https://www.google.com/maps?q=35.2500,139.7500" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.250°N  139.750°E</a></div></div><div class="rank-score">0.387</div></div><div class="rank-item"><div class="rank-medal b">3</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#047857"></span>ヒラマサ</div><div class="rank-meta">外洋性・東京湾除外 / SST中心21℃</div><div class="rank-meta" style="font-size:10px;"><a href="https://www.google.com/maps?q=35.0833,139.7500" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.750°E</a></div></div><div class="rank-score">0.277</div></div><div class="rank-item"><div class="rank-medal o">4</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#C2410C"></span>カツオ</div><div class="rank-meta">春の初鰹 / SST中心21℃</div><div class="rank-meta" style="font-size:10px;"><a href="https://www.google.com/maps?q=35.0833,139.7500" target="_blank" rel="noopener" class="gmap-link" title="Google マップで開く">35.083°N  139.750°E</a></div></div><div class="rank-score">0.149</div></div><div class="rank-item na"><div class="rank-medal na">—</div><div class="rank-main"><div class="rank-name"><span class="species-dot" style="background:#7C1D3A"></span>マグロ</div><div class="rank-meta">habitat マスク内に好適点なし</div></div><div class="rank-score">—</div></div></div></div>
   </details>
 
-  <details class="sec" id="top3">
+  <details class="sec" id="top3" open>
     <summary><h2><span class="h2-icon">🎯</span>魚種別 TOP3 ポイント</h2></summary>
     <div class="sec-body">
     <div class="species-table-wrap">
@@ -1428,16 +1463,16 @@ details.sec > .sec-body {
   <div class="swipe-page" data-page="forecast">
     <section id="horizon"><h2><span class="h2-icon">📅</span>直近 5 日間の見通し</h2><div class="horizon"><div class="h-card today"><div class="h-date">4/24 (金)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.419</div><div class="h-bar-wrap"><div class="h-bar" style="width:41%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.4m</span><span class="h-wx-item caution">💨 4.2m/s</span></div></div><div class="h-card"><div class="h-date">4/25 (土)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.419</div><div class="h-bar-wrap"><div class="h-bar" style="width:41%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.1m</span><span class="h-wx-item">💨 2.7m/s</span></div></div><div class="h-card"><div class="h-date">4/26 (日)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.419</div><div class="h-bar-wrap"><div class="h-bar" style="width:41%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.0m</span><span class="h-wx-item caution">💨 4.1m/s</span></div></div><div class="h-card"><div class="h-date">4/27 (月)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.419</div><div class="h-bar-wrap"><div class="h-bar" style="width:41%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.2m</span><span class="h-wx-item caution">💨 6.2m/s</span></div></div><div class="h-card"><div class="h-date">4/28 (火)</div><div class="h-species" style="color:#6B21A8"><span class="h-dot" style="background:#6B21A8"></span>タチウオ</div><div class="h-score-val">0.419</div><div class="h-bar-wrap"><div class="h-bar" style="width:41%;background:#6B21A8"></div></div><div class="h-wx"><span class="h-wx-item warn">🌊 1.6m</span><span class="h-wx-item caution">💨 4.2m/s</span></div></div></div><div class="horizon-note">※ 各日 TOP1 魚種とスコア。Copernicus +10日予報ベース。</div></section>
     <details class="sec" id="planner" open><summary><h2><span class="h2-icon">🧭</span>釣行プランナー <span style="font-size:11px;color:var(--text-subtle);font-weight:400;">直近 5 日の総合ベスト TOP3</span></h2></summary><div class="sec-body"><div class="planner-top3"><div class="planner-row"><div class="planner-medal ">1</div><div class="planner-body"><div class="planner-date">4/24 (金)</div><div class="planner-reason">タチウオ 0.42、波 1.4m / 風 4.2m/s</div></div><div class="planner-score">0.27</div></div><div class="planner-row"><div class="planner-medal s">2</div><div class="planner-body"><div class="planner-date">4/26 (日)</div><div class="planner-reason">タチウオ 0.42、波 1.0m / 風 4.1m/s</div></div><div class="planner-score">0.27</div></div><div class="planner-row"><div class="planner-medal b">3</div><div class="planner-body"><div class="planner-date">4/27 (月)</div><div class="planner-reason">タチウオ 0.42、波 1.2m / 風 6.2m/s</div></div><div class="planner-score">0.27</div></div></div></div></details>
-    <details class="sec" id="trends"><summary><h2><span class="h2-icon">📈</span>週間トレンド</h2></summary><div class="sec-body"><div class="trends"><div class="trend-card"><div class="trend-head"><div class="trend-title">🌊 波高</div><div class="trend-val">1.6<span class="trend-unit">m</span></div></div><svg class="trend-svg" viewBox="0 0 220 40" preserveAspectRatio="none"><path d="M 0.0,17.7 L 55.0,31.3 L 110.0,37.0 L 165.0,27.9 L 220.0,3.0" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="110.0" y1="0" x2="110.0" y2="40" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/></svg><div class="trend-sub">最新値 / 直近 5日</div></div><div class="trend-card"><div class="trend-head"><div class="trend-title">💨 風速</div><div class="trend-val">4.2<span class="trend-unit">m/s</span></div></div><svg class="trend-svg" viewBox="0 0 220 40" preserveAspectRatio="none"><path d="M 0.0,22.6 L 55.0,37.0 L 110.0,23.3 L 165.0,3.0 L 220.0,22.5" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="110.0" y1="0" x2="110.0" y2="40" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/></svg><div class="trend-sub">最新値 / 直近 5日</div></div></div></div></details>
+    <details class="sec" id="trends" open><summary><h2><span class="h2-icon">📈</span>週間トレンド</h2></summary><div class="sec-body"><div class="trends"><div class="trend-card"><div class="trend-head"><div class="trend-title">🌊 波高</div><div class="trend-val">1.6<span class="trend-unit">m</span></div></div><svg class="trend-svg" viewBox="0 0 220 40" preserveAspectRatio="none"><path d="M 0.0,17.7 L 55.0,31.3 L 110.0,37.0 L 165.0,27.9 L 220.0,3.0" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="110.0" y1="0" x2="110.0" y2="40" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/></svg><div class="trend-sub">最新値 / 直近 5日</div></div><div class="trend-card"><div class="trend-head"><div class="trend-title">💨 風速</div><div class="trend-val">4.2<span class="trend-unit">m/s</span></div></div><svg class="trend-svg" viewBox="0 0 220 40" preserveAspectRatio="none"><path d="M 0.0,22.6 L 55.0,37.0 L 110.0,23.3 L 165.0,3.0 L 220.0,22.5" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="110.0" y1="0" x2="110.0" y2="40" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/></svg><div class="trend-sub">最新値 / 直近 5日</div></div></div></div></details>
   </div><!-- /page 予報 -->
 
   <div class="swipe-page" data-page="tide-cal">
     <details class="sec" id="tide" open><summary><h2><span class="h2-icon">🌙</span>潮汐 <span style="font-size:11px;color:var(--text-subtle);font-weight:400;letter-spacing:0;margin-left:4px;">月齢ベース概算 / 精密時刻は 気象庁 潮位予測 参照</span></h2></summary><div class="sec-body"><div class="tide-today"><div class="tide-today-main" style="border-left-color:#F59E0B"><div class="tide-label">今日の潮名</div><div class="tide-big" style="color:#F59E0B">中潮</div><div class="tide-strength-bar"><div class="tide-strength-fill" style="width:65%;background:#F59E0B"></div></div><div class="tide-substr">潮の強さ 65%</div></div><div class="tide-today-moon"><div class="tide-label">月齢</div><div class="tide-moon-row"><span class="tide-moon-emoji">🌓</span><span class="tide-moon-age">7.4</span></div><div class="tide-substr">上弦 (50%)</div></div><div class="tide-today-link"><div class="tide-label">精密時刻</div><a href="https://www.data.jma.go.jp/kaiyou/db/tide/suisan/suisan.php" target="_blank" rel="noopener" class="tide-ext-link">気象庁 潮位予測<br>干満時刻 →</a></div></div><div class="tide-strip"><div class="tide-mini" style="border-left-color:#F59E0B"><div class="tide-mini-date">4/24</div><div class="tide-mini-name" style="color:#F59E0B">中潮</div><div class="tide-mini-age">🌓 7</div></div><div class="tide-mini" style="border-left-color:#3B82F6"><div class="tide-mini-date">4/25</div><div class="tide-mini-name" style="color:#3B82F6">小潮</div><div class="tide-mini-age">🌓 8</div></div><div class="tide-mini" style="border-left-color:#3B82F6"><div class="tide-mini-date">4/26</div><div class="tide-mini-name" style="color:#3B82F6">小潮</div><div class="tide-mini-age">🌔 9</div></div><div class="tide-mini" style="border-left-color:#6366F1"><div class="tide-mini-date">4/27</div><div class="tide-mini-name" style="color:#6366F1">長潮</div><div class="tide-mini-age">🌔 10</div></div><div class="tide-mini" style="border-left-color:#8B5CF6"><div class="tide-mini-date">4/28</div><div class="tide-mini-name" style="color:#8B5CF6">若潮</div><div class="tide-mini-age">🌔 11</div></div><div class="tide-mini" style="border-left-color:#F59E0B"><div class="tide-mini-date">4/29</div><div class="tide-mini-name" style="color:#F59E0B">中潮</div><div class="tide-mini-age">🌔 12</div></div><div class="tide-mini" style="border-left-color:#F59E0B"><div class="tide-mini-date">4/30</div><div class="tide-mini-name" style="color:#F59E0B">中潮</div><div class="tide-mini-age">🌕 13</div></div><div class="tide-mini" style="border-left-color:#F59E0B"><div class="tide-mini-date">5/1</div><div class="tide-mini-name" style="color:#F59E0B">中潮</div><div class="tide-mini-age">🌕 14</div></div><div class="tide-mini" style="border-left-color:#DC2626"><div class="tide-mini-date">5/2</div><div class="tide-mini-name" style="color:#DC2626">大潮</div><div class="tide-mini-age">🌕 15</div></div><div class="tide-mini" style="border-left-color:#DC2626"><div class="tide-mini-date">5/3</div><div class="tide-mini-name" style="color:#DC2626">大潮</div><div class="tide-mini-age">🌖 16</div></div></div></div></details>
-    <details class="sec" id="calendar"><summary><h2><span class="h2-icon">🗓️</span>南房総 魚種カレンダー <span style="font-size:11px;color:var(--text-subtle);font-weight:400;letter-spacing:0;margin-left:4px;">(4月の状況を 赤いフレームで強調)</span></h2></summary><div class="sec-body"><div class="cal-table"><div class="cal-header"><div class="cal-species-head">魚種</div><div class="cal-strip cal-strip-labels"><div class="cal-month-label">1</div><div class="cal-month-label">2</div><div class="cal-month-label">3</div><div class="cal-month-label cal-current-label">4</div><div class="cal-month-label">5</div><div class="cal-month-label">6</div><div class="cal-month-label">7</div><div class="cal-month-label">8</div><div class="cal-month-label">9</div><div class="cal-month-label">10</div><div class="cal-month-label">11</div><div class="cal-month-label">12</div></div><div class="cal-status-head">今月の状況</div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#1F4E8C"></span>ブリ</div><div class="cal-strip"><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good cal-current"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-peak"></div></div><div class="cal-status"><span class="cal-note" style="color:#F59E0B">前後期・終盤・徐々にオフへ</span></div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#7C1D3A"></span>マグロ</div><div class="cal-strip"><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low cal-current"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-low"></div></div><div class="cal-status"><span class="cal-note" style="color:#94A3B8">オフ・オフ・黒潮遠い</span></div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#C2410C"></span>カツオ</div><div class="cal-strip"><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-good cal-current"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div></div><div class="cal-status"><span class="cal-note" style="color:#F59E0B">前後期・初鰹 南下中</span></div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#047857"></span>ヒラマサ</div><div class="cal-strip"><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-good cal-current"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-low"></div></div><div class="cal-status"><span class="cal-note" style="color:#F59E0B">前後期・水温低く 立ち上がり前</span></div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#6B21A8"></span>タチウオ</div><div class="cal-strip"><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-good cal-current"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good"></div></div><div class="cal-status"><span class="cal-note" style="color:#F59E0B">前後期・内湾で安定、乗っ込み期</span></div></div></div><div class="cal-legend"><span><span class="cal-cell cal-peak"></span>旬</span><span><span class="cal-cell cal-good"></span>前後期</span><span><span class="cal-cell cal-low"></span>オフ</span><span style="color:var(--text-subtle);font-style:italic;">※ 椿氏の土地勘ベース、β運用で校正予定</span></div></div></details>
+    <details class="sec" id="calendar" open><summary><h2><span class="h2-icon">🗓️</span>南房総 魚種カレンダー <span style="font-size:11px;color:var(--text-subtle);font-weight:400;letter-spacing:0;margin-left:4px;">(4月の状況を 赤いフレームで強調)</span></h2></summary><div class="sec-body"><div class="cal-table"><div class="cal-header"><div class="cal-species-head">魚種</div><div class="cal-strip cal-strip-labels"><div class="cal-month-label">1</div><div class="cal-month-label">2</div><div class="cal-month-label">3</div><div class="cal-month-label cal-current-label">4</div><div class="cal-month-label">5</div><div class="cal-month-label">6</div><div class="cal-month-label">7</div><div class="cal-month-label">8</div><div class="cal-month-label">9</div><div class="cal-month-label">10</div><div class="cal-month-label">11</div><div class="cal-month-label">12</div></div><div class="cal-status-head">今月の状況</div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#1F4E8C"></span>ブリ</div><div class="cal-strip"><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good cal-current"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-peak"></div></div><div class="cal-status"><span class="cal-note" style="color:#F59E0B">前後期・終盤・徐々にオフへ</span></div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#7C1D3A"></span>マグロ</div><div class="cal-strip"><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low cal-current"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-low"></div></div><div class="cal-status"><span class="cal-note" style="color:#94A3B8">オフ・オフ・黒潮遠い</span></div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#C2410C"></span>カツオ</div><div class="cal-strip"><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-good cal-current"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div></div><div class="cal-status"><span class="cal-note" style="color:#F59E0B">前後期・初鰹 南下中</span></div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#047857"></span>ヒラマサ</div><div class="cal-strip"><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-good cal-current"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-low"></div></div><div class="cal-status"><span class="cal-note" style="color:#F59E0B">前後期・水温低く 立ち上がり前</span></div></div><div class="cal-row"><div class="cal-species"><span class="species-dot" style="background:#6B21A8"></span>タチウオ</div><div class="cal-strip"><div class="cal-cell cal-low"></div><div class="cal-cell cal-low"></div><div class="cal-cell cal-good"></div><div class="cal-cell cal-good cal-current"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-peak"></div><div class="cal-cell cal-good"></div></div><div class="cal-status"><span class="cal-note" style="color:#F59E0B">前後期・内湾で安定、乗っ込み期</span></div></div></div><div class="cal-legend"><span><span class="cal-cell cal-peak"></span>旬</span><span><span class="cal-cell cal-good"></span>前後期</span><span><span class="cal-cell cal-low"></span>オフ</span><span style="color:var(--text-subtle);font-style:italic;">※ 椿氏の土地勘ベース、β運用で校正予定</span></div></div></details>
   </div><!-- /page 潮暦 -->
 
   <div class="swipe-page" data-page="live">
-    <details class="sec" id="live"><summary><h2><span class="h2-icon">📡</span>ライブ海況</h2></summary><div class="sec-body"><div class="live-grid"><div class="live-card"><div class="live-card-head"><span>🛰️ 衛星雲画像（ひまわり由来）</span><span class="live-badge">LIVE</span></div><div class="live-iframe-wrap"><iframe src="https://embed.windy.com/embed2.html?lat=35.1&lon=140.0&zoom=7&level=surface&overlay=satellite&menu=&message=&marker=true&metricWind=m%2Fs&metricTemp=%C2%B0C&type=map&location=coordinates" loading="lazy" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="live-card-note">Windy 経由の合成雲画像（ひまわり 8/9号 由来）。<a href="https://www.data.jma.go.jp/mscweb/data/himawari/sat_img.php?area=jpn" target="_blank" rel="noopener">気象庁 原画像 →</a></div></div><div class="live-card"><div class="live-card-head"><span>🌊 Windy 波浪オーバーレイ</span><span class="live-src">windy.com</span></div><div class="live-iframe-wrap"><iframe src="https://embed.windy.com/embed2.html?lat=35.1&lon=140.0&zoom=8&level=surface&overlay=waves&menu=&message=&marker=true&metricWind=m%2Fs&metricTemp=%C2%B0C&type=map&location=coordinates" loading="lazy" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="live-card-note">波高・方向のリアルタイム オーバーレイ。<a href="https://www.windy.com/?waves,35.100,140.000,8" target="_blank" rel="noopener">Windy で全画面 →</a>  •  <a href="https://www.windy.com/-Webcams/cameras?35.100,140.000,9" target="_blank" rel="noopener">周辺ライブカメラを探す →</a></div></div></div></div></details>
+    <details class="sec" id="live" open><summary><h2><span class="h2-icon">📡</span>ライブ海況</h2></summary><div class="sec-body"><div class="live-grid"><div class="live-card"><div class="live-card-head"><span>🛰️ 衛星雲画像（ひまわり由来）</span><span class="live-badge">LIVE</span></div><div class="live-iframe-wrap"><iframe src="https://embed.windy.com/embed2.html?lat=35.1&lon=140.0&zoom=7&level=surface&overlay=satellite&menu=&message=&marker=true&metricWind=m%2Fs&metricTemp=%C2%B0C&type=map&location=coordinates" loading="lazy" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="live-card-note">Windy 経由の合成雲画像（ひまわり 8/9号 由来）。<a href="https://www.data.jma.go.jp/mscweb/data/himawari/sat_img.php?area=jpn" target="_blank" rel="noopener">気象庁 原画像 →</a></div></div><div class="live-card"><div class="live-card-head"><span>🌊 Windy 波浪オーバーレイ</span><span class="live-src">windy.com</span></div><div class="live-iframe-wrap"><iframe src="https://embed.windy.com/embed2.html?lat=35.1&lon=140.0&zoom=8&level=surface&overlay=waves&menu=&message=&marker=true&metricWind=m%2Fs&metricTemp=%C2%B0C&type=map&location=coordinates" loading="lazy" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="live-card-note">波高・方向のリアルタイム オーバーレイ。<a href="https://www.windy.com/?waves,35.100,140.000,8" target="_blank" rel="noopener">Windy で全画面 →</a>  •  <a href="https://www.windy.com/-Webcams/cameras?35.100,140.000,9" target="_blank" rel="noopener">周辺ライブカメラを探す →</a></div></div></div></div></details>
   </div><!-- /page ライブ -->
 
   <div class="swipe-page" data-page="maps">
@@ -1447,84 +1482,9 @@ details.sec > .sec-body {
 
   <div class="swipe-page" data-page="records">
     <section><h2 id="catches"><span class="h2-icon">🎣</span>今週の釣果報告</h2><div class="catch-empty">まだ報告はありません。釣行されたら上のボタンから記録ください。マグレでも、ボウズでも、予測との「答え合わせ」がクロアの精度向上に直結します。</div></section>
-    
-<section>
-<h2><span class="h2-icon">🔗</span>データソース</h2>
-<div class="source-grid">
-<a href="https://oceancolor.gsfc.nasa.gov/" target="_blank" rel="noopener" class="source-tile">
-  <div class="source-badge badge-nasa">
-    <svg viewBox="0 0 100 100" width="28" height="28">
-      <circle cx="50" cy="50" r="48" fill="#0B3D91"/>
-      <path d="M 15 60 Q 50 35 85 55" fill="none" stroke="#FC3D21" stroke-width="5" stroke-linecap="round"/>
-      <text x="50" y="55" text-anchor="middle" fill="white" font-family="Arial Black, sans-serif" font-weight="900" font-size="22" letter-spacing="-1">NASA</text>
-    </svg>
-    <span>NASA</span>
-  </div>
-  <div class="source-name">NASA EarthData</div>
-  <div class="source-role">SST (MUR)  •  Chl-a (MODIS NRT)</div>
-</a>
-<a href="https://marine.copernicus.eu/" target="_blank" rel="noopener" class="source-tile">
-  <div class="source-badge badge-copernicus">
-    <svg viewBox="0 0 100 100" width="28" height="28">
-      <defs><linearGradient id="cop-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#003E75"/><stop offset="100%" stop-color="#0076C0"/></linearGradient></defs>
-      <circle cx="50" cy="50" r="46" fill="url(#cop-g)"/>
-      <ellipse cx="50" cy="50" rx="42" ry="16" fill="none" stroke="#FDB913" stroke-width="3"/>
-      <ellipse cx="50" cy="50" rx="16" ry="42" fill="none" stroke="#FDB913" stroke-width="3" transform="rotate(25 50 50)"/>
-    </svg>
-    <span>Copernicus</span>
-  </div>
-  <div class="source-name">Copernicus Marine</div>
-  <div class="source-role">予報 (phys/bgc)  •  +10日先</div>
-</a>
-<a href="https://www.jma.go.jp/bosai/map.html" target="_blank" rel="noopener" class="source-tile">
-  <div class="source-badge badge-jma">
-    <svg viewBox="0 0 100 100" width="28" height="28">
-      <rect width="100" height="100" rx="14" fill="#0068B7"/>
-      <circle cx="50" cy="50" r="20" fill="#DC143C"/>
-      <path d="M 30 70 Q 50 85 70 70" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-    <span>気象庁</span>
-  </div>
-  <div class="source-name">JMA ひまわり</div>
-  <div class="source-role">衛星画像 (8/9号)  •  10分更新</div>
-</a>
-<a href="https://open-meteo.com/" target="_blank" rel="noopener" class="source-tile">
-  <div class="source-badge badge-openmeteo">
-    <svg viewBox="0 0 100 100" width="28" height="28">
-      <circle cx="55" cy="40" r="18" fill="#FDB813"/>
-      <path d="M 25 72 Q 35 58 50 64 Q 62 50 77 62 Q 88 70 82 82 L 20 82 Q 15 76 25 72 Z" fill="white" stroke="#EA580C" stroke-width="2"/>
-    </svg>
-    <span>Open-Meteo</span>
-  </div>
-  <div class="source-name">Open-Meteo</div>
-  <div class="source-role">波浪・風速 予報  •  10日先</div>
-</a>
-<a href="https://www.windy.com/" target="_blank" rel="noopener" class="source-tile">
-  <div class="source-badge badge-windy">
-    <svg viewBox="0 0 100 100" width="28" height="28">
-      <rect width="100" height="100" rx="14" fill="#2B3C5B"/>
-      <path d="M 18 40 Q 35 30 50 40 T 82 40" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 18 55 Q 40 45 60 55 T 82 55" fill="none" stroke="#4FC3F7" stroke-width="4" stroke-linecap="round"/>
-      <path d="M 18 70 Q 30 62 50 70 T 82 70" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
-    </svg>
-    <span>Windy</span>
-  </div>
-  <div class="source-name">Windy.com</div>
-  <div class="source-role">波浪オーバーレイ地図</div>
-</a>
-</div>
-<div class="source-caption">
-本アプリは上記の公開データを統合・分析しています。各ロゴは該当サービスの商標です。
-</div>
-</section>
-
-    <div style="text-align:center;margin-top:16px;">
+    <div style="text-align:center;margin-top:12px;">
       <a href="archive/" class="archive-link">📚 過去のレポートを見る</a>
     </div>
-    <footer>
-      <strong>クロア（Chlor.）</strong> β配信 v0.3  •  毎朝 7:40 JST 自動更新<br>
-      スコアは 0–1（<strong>0.5</strong> 超で好適）
-    </footer>
   </div><!-- /page 記録 -->
 
   </div><!-- /.swipe-pages -->
@@ -1539,6 +1499,16 @@ details.sec > .sec-body {
     <button class="swipe-dot" data-p="6" aria-label="記録"></button>
   </div>
   <div class="swipe-hint">👆 スワイプ or タブで 7 ページ切替</div>
+
+  <div class="bottom-attrib">
+    <span class="ba-title">v0.3 β · データ:</span>
+    <span class="ba-src">NASA</span>
+    <span class="ba-src">Copernicus</span>
+    <span class="ba-src">JMA</span>
+    <span class="ba-src">Open-Meteo</span>
+    <span class="ba-src">Windy</span>
+    <span style="margin-left:auto;opacity:0.6;">© クロア</span>
+  </div>
 
   </div><!-- /.container narrow -->
 
