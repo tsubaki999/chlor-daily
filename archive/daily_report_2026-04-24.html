@@ -392,6 +392,83 @@ footer strong { color: var(--text-mute); font-weight: 700; }
   border-color: var(--accent);
 }
 
+/* データソース ロゴタイル */
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+.source-tile {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+.source-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  color: white;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.source-badge svg { flex-shrink: 0; }
+.badge-nasa {
+  background: linear-gradient(135deg, #0B3D91 0%, #1C2951 100%);
+  font-family: 'Arial Black', Impact, sans-serif;
+  letter-spacing: -0.3px;
+}
+.badge-copernicus {
+  background: linear-gradient(135deg, #003E75 0%, #0076C0 100%);
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+.badge-jma {
+  background: linear-gradient(135deg, #0068B7 0%, #004A84 100%);
+  font-weight: 900;
+}
+.badge-openmeteo {
+  background: linear-gradient(135deg, #FB923C 0%, #EA580C 100%);
+}
+.badge-windy {
+  background: linear-gradient(135deg, #2B3C5B 0%, #1A2639 100%);
+  font-style: italic;
+  letter-spacing: 1.5px;
+}
+.source-name {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+.source-role {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin-top: 3px;
+  line-height: 1.5;
+}
+.source-caption {
+  font-size: 10.5px;
+  color: var(--text-subtle);
+  margin-top: 10px;
+  text-align: center;
+  font-style: italic;
+}
+
 /* Google Maps リンク化した座標 */
 .gmap-link {
   color: inherit;
@@ -610,7 +687,7 @@ footer strong { color: var(--text-mute); font-weight: 700; }
     <span>Chlor.  南房総 海況ダイジェスト</span>
   </div>
   <h1>クロア 海況ダイジェスト</h1>
-  <div class="subtitle">2026-04-24 (金)  /  南房総海域  /  Copernicus Marine 予報  /  生成: 2026-04-23 11:22 JST</div>
+  <div class="subtitle">2026-04-24 (金)  /  南房総海域  /  Copernicus Marine 予報  /  生成: 2026-04-23 11:26 JST</div>
 
   <a href="https://forms.gle/XXXXXXXX" target="_blank" class="catch-btn">🎣 釣果を報告する</a>
 
@@ -650,9 +727,81 @@ footer strong { color: var(--text-mute); font-weight: 700; }
     <div class="caution"><strong>⚠ 好適点なし：</strong> マグロ・ヒラマサ。habitat マスクと SST 条件を満たす点が見つかっていません。</div>
   </section>
 
-  <section><h2><span class="h2-icon">📡</span>ライブ海況</h2><div class="live-grid"><div class="live-card"><div class="live-card-head"><span>🛰️ ひまわり 衛星画像（True Color）</span><span class="live-badge">LIVE</span></div><div class="live-img-wrap"><img src="https://www.data.jma.go.jp/mscweb/data/himawari/img/jpn/jpn_trm.jpg?t=202604231122" alt="ひまわり日本域 True Color" onclick="openLiveImage(this.src)" loading="lazy"></div><div class="live-card-note">気象庁 ひまわり8/9号、10分ごと更新。<a href="https://www.data.jma.go.jp/mscweb/data/himawari/sat_img.php?area=jpn" target="_blank" rel="noopener">他のバンドを見る →</a></div></div><div class="live-card"><div class="live-card-head"><span>🌊 Windy 波浪オーバーレイ</span><span class="live-src">windy.com</span></div><div class="live-iframe-wrap"><iframe src="https://embed.windy.com/embed2.html?lat=35.1&lon=140.0&zoom=8&level=surface&overlay=waves&menu=&message=&marker=true&metricWind=m%2Fs&metricTemp=%C2%B0C&type=map&location=coordinates&detail=&detailLat=35.1&detailLon=140.0" loading="lazy" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="live-card-note">波高・方向のリアルタイム オーバーレイ。<a href="https://www.windy.com/?waves,35.100,140.000,8" target="_blank" rel="noopener">Windy で全画面 →</a>  •  <a href="https://www.windy.com/-Webcams/cameras?35.100,140.000,9" target="_blank" rel="noopener">周辺ライブカメラを探す →</a></div></div></div></section>
+  <section><h2><span class="h2-icon">📡</span>ライブ海況</h2><div class="live-grid"><div class="live-card"><div class="live-card-head"><span>🛰️ ひまわり 衛星画像（True Color）</span><span class="live-badge">LIVE</span></div><div class="live-img-wrap"><img src="https://www.data.jma.go.jp/mscweb/data/himawari/img/jpn/jpn_trm.jpg?t=202604231126" alt="ひまわり日本域 True Color" onclick="openLiveImage(this.src)" loading="lazy"></div><div class="live-card-note">気象庁 ひまわり8/9号、10分ごと更新。<a href="https://www.data.jma.go.jp/mscweb/data/himawari/sat_img.php?area=jpn" target="_blank" rel="noopener">他のバンドを見る →</a></div></div><div class="live-card"><div class="live-card-head"><span>🌊 Windy 波浪オーバーレイ</span><span class="live-src">windy.com</span></div><div class="live-iframe-wrap"><iframe src="https://embed.windy.com/embed2.html?lat=35.1&lon=140.0&zoom=8&level=surface&overlay=waves&menu=&message=&marker=true&metricWind=m%2Fs&metricTemp=%C2%B0C&type=map&location=coordinates&detail=&detailLat=35.1&detailLon=140.0" loading="lazy" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="live-card-note">波高・方向のリアルタイム オーバーレイ。<a href="https://www.windy.com/?waves,35.100,140.000,8" target="_blank" rel="noopener">Windy で全画面 →</a>  •  <a href="https://www.windy.com/-Webcams/cameras?35.100,140.000,9" target="_blank" rel="noopener">周辺ライブカメラを探す →</a></div></div></div></section>
 
   <section><h2><span class="h2-icon">🎣</span>今週の釣果報告</h2><div class="catch-empty">まだ報告はありません。釣行されたら上のボタンから記録ください。マグレでも、ボウズでも、予測との「答え合わせ」がクロアの精度向上に直結します。</div></section>
+
+  
+<section>
+<h2><span class="h2-icon">🔗</span>データソース</h2>
+<div class="source-grid">
+<a href="https://oceancolor.gsfc.nasa.gov/" target="_blank" rel="noopener" class="source-tile">
+  <div class="source-badge badge-nasa">
+    <svg viewBox="0 0 100 100" width="28" height="28">
+      <circle cx="50" cy="50" r="48" fill="#0B3D91"/>
+      <path d="M 15 60 Q 50 35 85 55" fill="none" stroke="#FC3D21" stroke-width="5" stroke-linecap="round"/>
+      <text x="50" y="55" text-anchor="middle" fill="white" font-family="Arial Black, sans-serif" font-weight="900" font-size="22" letter-spacing="-1">NASA</text>
+    </svg>
+    <span>NASA</span>
+  </div>
+  <div class="source-name">NASA EarthData</div>
+  <div class="source-role">SST (MUR)  •  Chl-a (MODIS NRT)</div>
+</a>
+<a href="https://marine.copernicus.eu/" target="_blank" rel="noopener" class="source-tile">
+  <div class="source-badge badge-copernicus">
+    <svg viewBox="0 0 100 100" width="28" height="28">
+      <defs><linearGradient id="cop-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#003E75"/><stop offset="100%" stop-color="#0076C0"/></linearGradient></defs>
+      <circle cx="50" cy="50" r="46" fill="url(#cop-g)"/>
+      <ellipse cx="50" cy="50" rx="42" ry="16" fill="none" stroke="#FDB913" stroke-width="3"/>
+      <ellipse cx="50" cy="50" rx="16" ry="42" fill="none" stroke="#FDB913" stroke-width="3" transform="rotate(25 50 50)"/>
+    </svg>
+    <span>Copernicus</span>
+  </div>
+  <div class="source-name">Copernicus Marine</div>
+  <div class="source-role">予報 (phys/bgc)  •  +10日先</div>
+</a>
+<a href="https://www.jma.go.jp/bosai/map.html" target="_blank" rel="noopener" class="source-tile">
+  <div class="source-badge badge-jma">
+    <svg viewBox="0 0 100 100" width="28" height="28">
+      <rect width="100" height="100" rx="14" fill="#0068B7"/>
+      <circle cx="50" cy="50" r="20" fill="#DC143C"/>
+      <path d="M 30 70 Q 50 85 70 70" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <span>気象庁</span>
+  </div>
+  <div class="source-name">JMA ひまわり</div>
+  <div class="source-role">衛星画像 (8/9号)  •  10分更新</div>
+</a>
+<a href="https://open-meteo.com/" target="_blank" rel="noopener" class="source-tile">
+  <div class="source-badge badge-openmeteo">
+    <svg viewBox="0 0 100 100" width="28" height="28">
+      <circle cx="55" cy="40" r="18" fill="#FDB813"/>
+      <path d="M 25 72 Q 35 58 50 64 Q 62 50 77 62 Q 88 70 82 82 L 20 82 Q 15 76 25 72 Z" fill="white" stroke="#EA580C" stroke-width="2"/>
+    </svg>
+    <span>Open-Meteo</span>
+  </div>
+  <div class="source-name">Open-Meteo</div>
+  <div class="source-role">波浪・風速 予報  •  10日先</div>
+</a>
+<a href="https://www.windy.com/" target="_blank" rel="noopener" class="source-tile">
+  <div class="source-badge badge-windy">
+    <svg viewBox="0 0 100 100" width="28" height="28">
+      <rect width="100" height="100" rx="14" fill="#2B3C5B"/>
+      <path d="M 18 40 Q 35 30 50 40 T 82 40" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 18 55 Q 40 45 60 55 T 82 55" fill="none" stroke="#4FC3F7" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 18 70 Q 30 62 50 70 T 82 70" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    </svg>
+    <span>Windy</span>
+  </div>
+  <div class="source-name">Windy.com</div>
+  <div class="source-role">波浪オーバーレイ地図</div>
+</a>
+</div>
+<div class="source-caption">
+本アプリは上記の公開データを統合・分析しています。各ロゴは該当サービスの商標です。
+</div>
+</section>
+
 
   </div><!-- /.container narrow -->
 
@@ -665,7 +814,6 @@ footer strong { color: var(--text-mute); font-weight: 700; }
 
   <footer>
     <strong>クロア（Chlor.）</strong> β配信 v0.3  •  毎朝 7:40 JST 自動更新<br>
-    データソース: Copernicus Marine BGC (Chl-a) / GHRSST MUR (SST) / Open-Meteo (波・風)<br>
     スコアは 0–1（<strong>0.5</strong> 超で好適、<strong>0.7</strong> 超で最適）<br>
     <span style="font-size:10px;">📱 iOS: 「共有 → ホーム画面に追加」でアプリ化可能</span>
   </footer>
