@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0A3D62">
+<title>クロア (Chlor.) プライバシーポリシー</title>
+<meta name="description" content="クロアの個人情報取扱方針。釣果情報・位置情報の保護について。">
+<style>
+:root { --bg:#0A1530; --card:#15213F; --primary:#FBBF24; --accent:#22D3EE; --text:#FAFCFF; --mute:#94A3B8; --border:rgba(255,255,255,0.12); }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:system-ui,sans-serif; font-size:14px; line-height:1.7; }
+.wrap { max-width:760px; margin:0 auto; padding:32px 20px 80px; }
+h1 { font-size:26px; color:var(--primary); margin-bottom:8px; }
+.sub { color:var(--mute); font-size:13px; margin-bottom:24px; }
+h2 { font-size:18px; color:var(--accent); margin:28px 0 8px; padding-top:12px; border-top:1px solid var(--border); }
+h3 { font-size:15px; color:var(--text); margin:14px 0 6px; }
+p, li { color:#CBD5E1; margin-bottom:8px; }
+ul, ol { padding-left:24px; margin-bottom:12px; }
+strong { color:var(--primary); }
+.beta-note { padding:14px; background:rgba(251,191,36,0.10); border:1px solid rgba(251,191,36,0.30); border-radius:8px; margin-bottom:24px; font-size:13px; }
+.principle { padding:12px 14px; background:rgba(34,211,238,0.06); border-left:3px solid var(--accent); border-radius:6px; margin:10px 0; font-size:13px; }
+.toc { background:var(--card); border-radius:10px; padding:16px 20px; margin-bottom:24px; }
+.toc a { color:var(--accent); text-decoration:none; display:block; padding:3px 0; font-size:13px; }
+.toc a:hover { color:var(--primary); }
+.footer-nav { margin-top:40px; padding-top:20px; border-top:1px solid var(--border); text-align:center; font-size:12px; color:var(--mute); }
+.footer-nav a { color:var(--primary); text-decoration:none; margin:0 8px; }
+table { width:100%; border-collapse:collapse; font-size:13px; margin:12px 0; }
+th, td { padding:8px 12px; border-bottom:1px solid var(--border); text-align:left; }
+th { background:rgba(96,165,250,0.10); color:#93C5FD; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🔒 プライバシーポリシー</h1>
+<div class="sub">最終更新: 2026-05-02 / バージョン v0.7+ β</div>
+
+<div class="beta-note">
+クロアは「釣果情報を売らない、広告も載せない」ことを明確に約束します。
+</div>
+
+<div class="principle">
+<strong>3 つの基本原則</strong><br>
+1. 釣果データは <strong>第三者に販売しない</strong><br>
+2. 個人特定情報は <strong>必要最小限のみ収集</strong><br>
+3. 機微情報 (位置・写真) は <strong>ユーザーが選択的に伏せられる</strong>
+</div>
+
+<div class="toc">
+<strong>目次</strong>
+<a href="#1">1. 取得する情報</a>
+<a href="#2">2. 利用目的</a>
+<a href="#3">3. 第三者提供</a>
+<a href="#4">4. 位置情報の取扱</a>
+<a href="#5">5. 写真の取扱</a>
+<a href="#6">6. Cookie / localStorage</a>
+<a href="#7">7. 削除権・開示請求</a>
+<a href="#8">8. データ保管期間</a>
+<a href="#9">9. 子供の情報</a>
+<a href="#10">10. お問い合わせ</a>
+</div>
+
+<h2 id="1">1. 取得する情報</h2>
+<table>
+<tr><th>情報</th><th>収集経路</th><th>必須/任意</th></tr>
+<tr><td>ニックネーム / 氏名</td><td>釣果フォーム / レビューフォーム</td><td>任意</td></tr>
+<tr><td>釣果情報 (魚種・サイズ・日時)</td><td>釣果フォーム</td><td>任意</td></tr>
+<tr><td>釣行場所 (港名 or 緯度経度)</td><td>釣果フォーム</td><td>任意 (5km 粒度ぼかし可)</td></tr>
+<tr><td>釣果写真</td><td>釣果フォーム</td><td>任意</td></tr>
+<tr><td>港レビュー (★評価 + コメント)</td><td>レビューフォーム</td><td>任意</td></tr>
+<tr><td>ブラウザ言語・タイムゾーン</td><td>サイトアクセス時</td><td>自動</td></tr>
+<tr><td>マイ統計設定</td><td>localStorage (ブラウザ内)</td><td>任意</td></tr>
+</table>
+
+<h2 id="2">2. 利用目的</h2>
+<ul>
+<li>クロアの <strong>予測モデル精度検証</strong> (HIT 率算出)</li>
+<li>本サービス上での <strong>釣果共有 / マップ表示</strong></li>
+<li>マイ統計など <strong>個人化機能の提供</strong></li>
+<li>月次レポート・SNS 投稿 (投稿者の同意範囲内)</li>
+<li>学術研究 (匿名化済データのみ)</li>
+<li>サービスの改善・障害対応</li>
+</ul>
+<p>利用目的を超えた利用は行いません。</p>
+
+<h2 id="3">3. 第三者提供</h2>
+<p><strong>原則として第三者提供は行いません。</strong> 以下の限定的な場合のみ提供することがあります:</p>
+<ul>
+<li>法令に基づく開示要求 (裁判所命令等)</li>
+<li>利用者の生命・身体・財産の保護に必要な場合</li>
+<li>学術機関・政府機関との共同研究 (匿名化済集計データのみ、利用者の同意取得)</li>
+<li>漁協との連携 (定置網位置の精緻化等、釣果情報自体は提供しない)</li>
+</ul>
+
+<h2 id="4">4. 位置情報の取扱</h2>
+<h3>4.1 投稿された位置情報</h3>
+<p>
+釣果フォームで投稿された位置情報は、以下の方法でぼかし処理が選択可能です:
+</p>
+<ul>
+<li>原座標 (デフォルト)</li>
+<li>5km 粒度 (例: 35.000°N, 140.000°E に丸める)</li>
+<li>港単位 (緯度経度ではなく「鴨川」と表示)</li>
+<li>非公開 (投稿者本人のマイ統計のみで参照)</li>
+</ul>
+
+<h3>4.2 ブラウザ位置情報 (Geolocation API)</h3>
+<p>
+本サービスは現在、ブラウザ位置情報を <strong>収集していません</strong>。将来 Native アプリ化時には、最寄り港自動選択のためにオプトインで使用予定です。
+</p>
+
+<h2 id="5">5. 写真の取扱</h2>
+<ul>
+<li>釣果写真は Google Form 経由で Google Drive に保存され、クロアサイトに <strong>サムネ表示</strong>(50×50px) されます。</li>
+<li>撮影日時 / EXIF 情報は <strong>使用しません</strong>。プライバシー懸念がある場合は EXIF を削除してから投稿ください。</li>
+<li>v0.8 で AI 同定機能を導入予定 (iNaturalist API)。同定処理時に画像 URL を送信しますが、画像本体の保存はしません。</li>
+<li>第三者の顔・個人特定情報が写った写真の投稿は<strong>避けてください</strong>。投稿時に該当する場合、削除対象となります。</li>
+</ul>
+
+<h2 id="6">6. Cookie / localStorage</h2>
+<p>
+本サービスは Cookie を使用していませんが、以下の <strong>localStorage</strong> (ブラウザ内ストレージ) を使用します:
+</p>
+<table>
+<tr><th>キー</th><th>用途</th><th>有効期限</th></tr>
+<tr><td>chlor_my_nickname</td><td>マイ統計の名前マッチ</td><td>ユーザー削除まで</td></tr>
+<tr><td>chlor_invited_by</td><td>招待元の記憶</td><td>ユーザー削除まで</td></tr>
+<tr><td>chlor_port_*</td><td>前回選択港の記憶</td><td>ユーザー削除まで</td></tr>
+<tr><td>chlor_welcome_seen_v1</td><td>初回案内表示状態</td><td>ユーザー削除まで</td></tr>
+<tr><td>chlor_notify_enabled</td><td>通知許可状態</td><td>ユーザー削除まで</td></tr>
+<tr><td>chlor_cost_*</td><td>コスト計算機の入力値</td><td>ユーザー削除まで</td></tr>
+</table>
+<p>
+これらは<strong>ブラウザ内に閉じた情報</strong>で、サーバーには送信されません。ブラウザの設定からいつでも削除可能です。
+</p>
+
+<h2 id="7">7. 削除権・開示請求</h2>
+<p>
+利用者は自身の投稿情報について、以下の権利を有します:
+</p>
+<ul>
+<li><strong>削除請求権</strong>: 投稿物の削除を求めることができます (原則 7 日以内対応)</li>
+<li><strong>開示請求権</strong>: 自身の投稿物全てを CSV 形式で受け取ることができます</li>
+<li><strong>訂正請求権</strong>: 誤った情報の訂正を求めることができます</li>
+</ul>
+<p>請求は <a href="mailto:tsubakim@monogatari.co.jp" style="color:var(--accent);">tsubakim@monogatari.co.jp</a> まで。</p>
+
+<h2 id="8">8. データ保管期間</h2>
+<ul>
+<li>釣果情報・レビュー: <strong>無期限</strong>(精度検証・歴史データとして) — 削除請求があれば削除</li>
+<li>localStorage: ユーザーが削除するまで (ブラウザ内)</li>
+<li>サーバアクセスログ: <strong>30 日</strong> (障害調査用)</li>
+<li>運営者連絡先データベース (β 招待者リスト等): F3 ローンチ後 <strong>1 年</strong></li>
+</ul>
+
+<h2 id="9">9. 子供の情報</h2>
+<p>
+13 歳未満の方が本サービスを利用する場合、必ず保護者の同意を得てください。13 歳未満であることが判明し、保護者の同意がない場合、当該情報を削除します。
+</p>
+
+<h2 id="10">10. お問い合わせ</h2>
+<p>
+本ポリシーに関するご質問・苦情・削除請求等は、以下までお願いします:
+</p>
+<p style="padding:12px;background:var(--card);border-radius:8px;">
+<strong>椿 正玄</strong> (個人開発者) / 物語コーポレーション<br>
+Email: <a href="mailto:tsubakim@monogatari.co.jp" style="color:var(--accent);">tsubakim@monogatari.co.jp</a><br>
+Web: <a href="https://tsubaki999.github.io/chlor-daily/" style="color:var(--accent);">https://tsubaki999.github.io/chlor-daily/</a>
+</p>
+
+<div class="footer-nav">
+<a href="/chlor-daily/">🏠 アプリへ戻る</a>
+<a href="/chlor-daily/legal/terms.html">📋 利用規約</a>
+<a href="mailto:tsubakim@monogatari.co.jp">📧 お問い合わせ</a>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0A3D62">
+<title>クロア β 募集 — 海洋衛星 × 釣果予測</title>
+<meta name="description" content="NASA・Copernicus 衛星データ + 食物連鎖モデルで「明日どこ釣れるか」を毎朝 7:40 に予測。全国 17 海域・200+港。完全無料 β テスター募集中。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="クロア β 募集 — 海洋衛星 × 釣果予測">
+<meta property="og:description" content="NASA・Copernicus 衛星データで「明日どこ釣れるか」を毎朝 7:40 予測。全国 17 海域・200+港。完全無料β。">
+<meta property="og:image" content="https://tsubaki999.github.io/chlor-daily/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://tsubaki999.github.io/chlor-daily/invite/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="クロア β 募集 — 海洋衛星 × 釣果予測">
+<meta name="twitter:image" content="https://tsubaki999.github.io/chlor-daily/og-image.png">
+<style>
+:root {
+  --bg: #0A1530;
+  --bg-card: #15213F;
+  --primary: #FBBF24;
+  --primary-2: #F59E0B;
+  --accent: #22D3EE;
+  --text: #FAFCFF;
+  --text-mute: #94A3B8;
+  --border: rgba(255,255,255,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: linear-gradient(180deg, #0A1530 0%, #0E2A5C 50%, #0A1530 100%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 24px 18px 80px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 40px 16px 32px;
+  position: relative;
+}
+.hero-logo {
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: var(--primary);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.hero-icon {
+  font-size: 56px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 20px rgba(34,211,238,0.5));
+}
+.hero h1 {
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 900;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, #FBBF24, #22D3EE);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  font-size: 15px;
+  color: #CBD5E1;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  color: #0A1530;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 8px 24px rgba(251,191,36,0.30);
+  transition: transform 0.15s;
+}
+.hero-cta:hover { transform: translateY(-2px); }
+.hero-secondary {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 14px 24px;
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Value props */
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 32px 0 40px;
+}
+.value {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 14px;
+  text-align: center;
+}
+.value-icon { font-size: 28px; margin-bottom: 8px; }
+.value-num {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+.value-label { font-size: 11px; color: var(--text-mute); }
+
+/* Sections */
+.section {
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.section h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+}
+.section h2 .h2-num {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  background: var(--primary);
+  color: #0A1530;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+}
+.section p { color: #CBD5E1; margin-bottom: 8px; }
+.section ul { color: #CBD5E1; padding-left: 24px; }
+.section ul li { margin: 4px 0; }
+.section em { color: var(--accent); font-style: normal; font-weight: 700; }
+.section strong { color: var(--primary); }
+
+/* Compare table */
+.compare {
+  margin: 16px 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.compare th, .compare td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-align: left;
+}
+.compare th {
+  background: rgba(96,165,250,0.10);
+  font-weight: 700;
+  color: var(--accent);
+}
+.compare .yes { color: #34D399; font-weight: 700; }
+.compare .no { color: #94A3B8; }
+
+/* CTA banner */
+.cta-banner {
+  margin: 40px 0 24px;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, rgba(251,191,36,0.18), rgba(34,211,238,0.18));
+  border: 1.5px solid var(--primary);
+  border-radius: 16px;
+  text-align: center;
+}
+.cta-banner h3 {
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+.cta-banner p { font-size: 13px; color: #CBD5E1; margin-bottom: 18px; }
+.cta-banner a {
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  color: #0A1530;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+/* QR */
+.qr-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0;
+  padding: 14px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+.qr-box img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  background: white;
+  padding: 4px;
+}
+.qr-box .qr-text {
+  flex: 1;
+  font-size: 12px;
+}
+.qr-box .qr-text strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+/* FAQ */
+.faq details {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 8px 0;
+}
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 6px 0;
+  color: var(--text);
+  font-size: 14px;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--primary);
+  font-size: 11px;
+  transition: transform 0.15s;
+}
+.faq details[open] summary::before { transform: rotate(90deg); }
+.faq details > div {
+  padding: 4px 0 8px 22px;
+  color: #CBD5E1;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-mute);
+}
+.footer a { color: var(--primary); text-decoration: none; }
+
+/* Mobile */
+@media (max-width: 540px) {
+  .hero h1 { font-size: 24px; }
+  .values { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .value-num { font-size: 18px; }
+  .hero-secondary { display: block; margin: 12px auto 0; }
+  .qr-box { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-logo">CHLOR.</div>
+    <div class="hero-icon">🎣</div>
+    <h1>明日どこ釣れるか、<br>毎朝 7:40 に予測。</h1>
+    <p class="hero-sub">
+      NASA Ocean Color × Copernicus Marine × JMA<br>
+      <strong style="color:var(--accent)">海洋衛星データ + 食物連鎖モデル</strong>で<br>
+      全国 17 海域・200+ 港の最適ポイントを自動計算。
+    </p>
+    <a href="https://tsubaki999.github.io/chlor-daily/" class="hero-cta">
+      🌊 今すぐ クロアを見る
+    </a>
+    <a href="#join" class="hero-secondary">β テスター登録 →</a>
+  </div>
+
+  <!-- Value props (numbers) -->
+  <div class="values">
+    <div class="value">
+      <div class="value-icon">🗾</div>
+      <div class="value-num">17</div>
+      <div class="value-label">海域カバー</div>
+    </div>
+    <div class="value">
+      <div class="value-icon">⚓</div>
+      <div class="value-num">200+</div>
+      <div class="value-label">港・出艇地</div>
+    </div>
+    <div class="value">
+      <div class="value-icon">🐟</div>
+      <div class="value-num">17</div>
+      <div class="value-label">魚種予測</div>
+    </div>
+  </div>
+
+  <!-- Section 1: Why Chlor -->
+  <section class="section">
+    <h2><span class="h2-num">1</span>なぜ クロア か?</h2>
+    <p>
+      既存の釣り予報アプリは「潮汐 + 天気 + 月齢」止まり。
+      クロアは <em>食物連鎖の起点 = クロロフィル</em> を NASA 衛星から取得し、
+      「魚が集まる海面温度フロント」と組み合わせて、
+      <strong>魚種別ポテンシャルスコア</strong> を計算します。
+    </p>
+    <p>
+      使うのは 衛星海洋データ + 気象データ + 潮汐の数学モデル。
+      <strong>勘ではなく、再現性のある科学</strong> で出すから、
+      予測の理由が全部見えます。
+    </p>
+  </section>
+
+  <!-- Section 2: 競合比較 -->
+  <section class="section">
+    <h2><span class="h2-num">2</span>他のアプリと何が違う?</h2>
+    <table class="compare">
+      <tr>
+        <th>機能</th>
+        <th>クロア</th>
+        <th>一般的な釣りアプリ</th>
+      </tr>
+      <tr>
+        <td>NASA / Copernicus 衛星データ</td>
+        <td class="yes">✅ 統合済</td>
+        <td class="no">なし</td>
+      </tr>
+      <tr>
+        <td>食物連鎖ベース予測</td>
+        <td class="yes">✅</td>
+        <td class="no">経験則のみ</td>
+      </tr>
+      <tr>
+        <td>17 海域・200+ 港</td>
+        <td class="yes">✅</td>
+        <td class="no">ローカル特化が多い</td>
+      </tr>
+      <tr>
+        <td>カヤック出艇地カテゴリ</td>
+        <td class="yes">✅ 22+ 港</td>
+        <td class="no">未対応</td>
+      </tr>
+      <tr>
+        <td>釣果でモデル改善</td>
+        <td class="yes">✅ 月次精度公開</td>
+        <td class="no">非公開</td>
+      </tr>
+      <tr>
+        <td>料金</td>
+        <td class="yes">完全無料 (β)</td>
+        <td class="no">広告 / 課金</td>
+      </tr>
+      <tr>
+        <td>広告</td>
+        <td class="yes">なし</td>
+        <td class="no">あり</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Section 3: For Whom -->
+  <section class="section">
+    <h2><span class="h2-num">3</span>こんな人におすすめ</h2>
+    <ul>
+      <li><strong>船で出る人</strong> — 出船判断の根拠が欲しい</li>
+      <li><strong>カヤッカー</strong> — 出艇地・潮流・離岸流を一覧で見たい</li>
+      <li><strong>堤防アングラー</strong> — 港単位で沿岸魚種 (ヒラメ・キス・スズキ) のスコア</li>
+      <li><strong>船長・ガイド</strong> — お客様向け配信ツール (F2 9月開始予定)</li>
+      <li><strong>家族で釣り</strong> — 駐車場・トイレ情報込みで港を選びたい</li>
+    </ul>
+  </section>
+
+  <!-- Section 4: How -->
+  <section class="section">
+    <h2><span class="h2-num">4</span>使い方は簡単</h2>
+    <ul>
+      <li>① クロアを開く (アプリ DL 不要、ブラウザだけ)</li>
+      <li>② ヘッダーから自分のエリア・港を選択</li>
+      <li>③ 海況タブで「GO / NO-GO」判断</li>
+      <li>④ ターゲットタブで魚種別ベスト 3 ポイント確認</li>
+      <li>⑤ 釣行後、釣果を 30 秒で投稿 → モデル改善に貢献</li>
+    </ul>
+    <p style="margin-top:12px;font-size:12px;color:var(--text-mute);">
+      ※ ホーム画面に追加すれば PWA としてアプリ風に動作。オフライン閲覧対応。
+    </p>
+  </section>
+
+  <!-- v0.7+ D1: 招待コード パネル -->
+  <div class="cta-banner" id="join">
+    <h3>🎣 β テスター 募集中 (〜2026/05/31)</h3>
+    <p id="invite-msg">
+      無料・広告なし・釣果情報は外部販売しません。<br>
+      F3 商用化時は 1 年無料プロプラン + 監修クレジット (希望者)。
+    </p>
+    <a id="cta-app" href="https://tsubaki999.github.io/chlor-daily/">
+      🌊 まずはクロアを試す
+    </a>
+    <div id="invite-share-box" style="margin-top:24px;padding-top:20px;border-top:1px dashed rgba(251,191,36,0.30);display:none;">
+      <p style="font-size:12px;color:#CBD5E1;margin-bottom:10px;">
+        🎁 クロアを 5 人に紹介すると<br>
+        F3 商用化時に <strong style="color:var(--primary);">1 年無料プロプラン確約</strong>
+      </p>
+      <button id="invite-copy" style="
+        padding:10px 20px;background:rgba(34,211,238,0.15);
+        color:#22D3EE;border:1px solid #22D3EE;border-radius:999px;
+        cursor:pointer;font-weight:700;font-size:13px;font-family:inherit;
+      ">📋 あなた専用の紹介リンクをコピー</button>
+      <div id="invite-result" style="margin-top:8px;font-size:11px;color:#CBD5E1;"></div>
+    </div>
+  </div>
+
+<script>
+// v0.7+ D1: 招待コード機能
+(function() {{
+  const url = new URL(window.location.href);
+  const fromInviter = url.searchParams.get('from');
+  if (fromInviter) {{
+    // 紹介経由のアクセス
+    const msg = document.getElementById('invite-msg');
+    if (msg) {{
+      msg.innerHTML =
+        '<strong style="color:var(--primary);">🎣 ' + fromInviter + ' さんからの紹介で来てくれてありがとうございます!</strong><br>' +
+        '無料・広告なし・釣果情報は外部販売しません。<br>' +
+        'F3 商用化時は 1 年無料プロプラン + 監修クレジット (希望者)。';
+    }}
+    // CTA URL に from を引き継ぐ
+    const cta = document.getElementById('cta-app');
+    if (cta) cta.href = 'https://tsubaki999.github.io/chlor-daily/?from=' + encodeURIComponent(fromInviter);
+    // 招待元に確認: localStorage で記憶 (再訪時に紹介者を覚えておく)
+    try {{ localStorage.setItem('chlor_invited_by', fromInviter); }} catch(e) {{}}
+  }}
+
+  // 招待リンク発行ボタン
+  const btn = document.getElementById('invite-copy');
+  const shareBox = document.getElementById('invite-share-box');
+  // 自分のニックネームが localStorage に保存されてれば招待 UI を表示
+  let myName = '';
+  try {{ myName = localStorage.getItem('chlor_my_nickname') || ''; }} catch(e) {{}}
+  if (myName && shareBox) shareBox.style.display = 'block';
+
+  if (btn) {{
+    btn.addEventListener('click', () => {{
+      let nick = '';
+      try {{ nick = localStorage.getItem('chlor_my_nickname') || ''; }} catch(e) {{}}
+      if (!nick) {{
+        nick = window.prompt('あなたのニックネームを入力 (友達からは「○○さんから紹介」と表示されます)', '');
+        if (!nick) return;
+        try {{ localStorage.setItem('chlor_my_nickname', nick.trim()); }} catch(e) {{}}
+      }}
+      const inviteUrl = 'https://tsubaki999.github.io/chlor-daily/invite/?from=' + encodeURIComponent(nick.trim());
+      navigator.clipboard.writeText(inviteUrl).then(() => {{
+        const result = document.getElementById('invite-result');
+        if (result) {{
+          result.innerHTML = '✅ コピー完了!<br><code style="color:#22D3EE;font-size:10px;">' + inviteUrl + '</code><br>LINE/Twitter で釣り仲間に貼ってください';
+        }}
+      }}).catch(() => {{
+        const result = document.getElementById('invite-result');
+        if (result) result.textContent = '⚠ コピー失敗、URL を手動で貼ってください: ' + inviteUrl;
+      }});
+    }});
+  }}
+}})();
+</script>
+
+  <!-- Section 5: Feedback Forms -->
+  <section class="section">
+    <h2><span class="h2-num">5</span>フィードバック方法</h2>
+    <ul>
+      <li>🎣 <a href="https://forms.gle/bz7VQ4MhydzHkEqd7" style="color:var(--primary);">釣果ログ投稿</a> — 30 秒、写真添付可</li>
+      <li>💬 <a href="https://forms.gle/uDBt97NR57z3xSRGA" style="color:var(--primary);">ご意見・要望</a> — バグ報告・新機能提案</li>
+      <li>🛶 港レビュー (近日) — 出艇地の使い勝手評価</li>
+      <li>🤝 同船募集 (近日) — 「同じ港から出る人いる?」</li>
+    </ul>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq">
+    <h2><span class="h2-num">?</span>よくある質問</h2>
+
+    <details>
+      <summary>本当に無料? 後から課金される?</summary>
+      <div>
+        β 期間中 (〜2026/08/31) は完全無料、広告もありません。F3 商用化時は<strong>船長向け F2 プラン (¥3,800/月-)</strong> から開始予定で、個人プランは引き続き無料維持の方針です。
+      </div>
+    </details>
+
+    <details>
+      <summary>釣果情報は外部に売られませんか?</summary>
+      <div>
+        利用規約で<strong>第三者への提供を明確に禁止</strong>しています。クロア社内の予測モデル改善にのみ利用します。座標は 5km 粒度で曖昧化するオプションもあります。
+      </div>
+    </details>
+
+    <details>
+      <summary>予測精度はどのくらい?</summary>
+      <div>
+        β 期間で釣果ログを集めて検証中。月次の HIT@TOP3 (予測 TOP3 ポイント 10km 圏内に釣果) 率を公開予定。現在の中間値は 60% 前後です。
+      </div>
+    </details>
+
+    <details>
+      <summary>NASA データを個人で使って大丈夫?</summary>
+      <div>
+        NASA Ocean Color・Copernicus Marine ともに <strong>研究・商用利用 OK</strong> のオープンデータです。クロアでは出典を明示しています。
+      </div>
+    </details>
+
+    <details>
+      <summary>船長 / ガイド向けプランはいつ?</summary>
+      <div>
+        F2 船長プラン (¥3,800-18,000/月) を 2026 年 9 月 α 試験開始予定。LINE 自動配信・釣果集計 PDF・顧客リテンション機能を搭載。早期参加者は<strong>生涯 30% OFF + 6 ヶ月無料</strong>。
+      </div>
+    </details>
+
+    <details>
+      <summary>他のエリア (台湾 / 東南アジア) も対応する?</summary>
+      <div>
+        Copernicus は全球対応なので技術的には可能。<strong>2027 Q1 に台湾版</strong>を試験ローンチ予定。多言語化 (JA/EN/中) は実装済み。
+      </div>
+    </details>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>
+      <strong style="color:var(--primary);">Chlor.</strong> v0.7+ β · 椿正玄 開発<br>
+      Data: NASA · Copernicus · JMA · Open-Meteo · Windy<br>
+      <a href="https://tsubaki999.github.io/chlor-daily/">📡 クロア β サイトへ</a>
+    </p>
+    <p style="margin-top:8px;color:#64748B;font-size:10px;">
+      ⚠ PoC・予測精度の保証なし。出船判断は当日現場・気象庁の指示に従ってください。
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

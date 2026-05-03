@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>クロア 管理者ダッシュボード — 2026-05-03</title>
+<style>
+:root {
+  --bg: #0A1530; --card: #15213F; --primary: #FBBF24;
+  --text: #FAFCFF; --mute: #94A3B8; --border: rgba(255,255,255,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: 13px; line-height: 1.5;
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 24px 18px 80px; }
+.head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 16px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+}
+.head h1 { font-size: 22px; color: var(--primary); }
+.head .date { color: var(--mute); font-size: 12px; }
+.kpi {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px;
+}
+.kpi-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px; text-align: center;
+}
+.kpi-num { font-size: 32px; font-weight: 900; color: var(--primary); }
+.kpi-lbl { font-size: 11px; color: var(--mute); margin-top: 4px; }
+section {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px; margin-bottom: 18px;
+}
+section h2 { font-size: 15px; margin-bottom: 12px; color: var(--primary); }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; padding: 6px 10px; background: rgba(96,165,250,0.10); color: #93C5FD; font-weight: 700; }
+td { padding: 6px 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.wt-row { display: flex; gap: 8px; align-items: flex-end; padding: 12px 0; }
+.wt-col { flex: 1; text-align: center; }
+.wt-bar {
+  background: linear-gradient(180deg, var(--primary), #F59E0B);
+  border-radius: 4px 4px 0 0; margin: 0 auto;
+  width: 32px;
+}
+.wt-num { font-size: 14px; font-weight: 800; color: var(--primary); margin-top: 4px; }
+.wt-lbl { font-size: 10px; color: var(--mute); }
+.user-chip {
+  display: inline-block; padding: 4px 10px; margin: 3px;
+  background: rgba(34,211,238,0.10); color: #67E8F9;
+  border-radius: 999px; font-size: 11px;
+}
+.metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.metric {
+  text-align: center; padding: 12px; background: rgba(0,0,0,0.20);
+  border-radius: 8px;
+}
+.m-lbl { font-size: 10px; color: var(--mute); }
+.m-val { font-size: 22px; font-weight: 800; color: var(--primary); margin-top: 4px; }
+.empty { color: var(--mute); font-size: 12px; padding: 8px 0; }
+.meta { font-size: 11px; color: var(--mute); margin-top: 8px; text-align: right; }
+.note {
+  margin-top: 24px; padding: 12px; background: rgba(251,191,36,0.10);
+  border: 1px solid rgba(251,191,36,0.30); border-radius: 8px;
+  font-size: 11px;
+}
+@media (max-width: 540px) {
+  .kpi { grid-template-columns: repeat(2, 1fr); }
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>📊 クロア 管理者ダッシュボード</h1>
+    <span class="date">2026-05-03 集計</span>
+  </div>
+
+  <!-- KPI -->
+  <div class="kpi">
+    <div class="kpi-card"><div class="kpi-num">3</div><div class="kpi-lbl">直近 7 日 釣果</div></div>
+    <div class="kpi-card"><div class="kpi-num">3</div><div class="kpi-lbl">直近 30 日 釣果</div></div>
+    <div class="kpi-card"><div class="kpi-num">2</div><div class="kpi-lbl">アクティブテスター (30日)</div></div>
+    <div class="kpi-card"><div class="kpi-num">2</div><div class="kpi-lbl">累積テスター (90日)</div></div>
+  </div>
+
+  <!-- 週次トレンド -->
+  <section>
+    <h2>📈 週次釣果トレンド</h2>
+    <div class="wt-row"><div class="wt-col"><div class="wt-bar" style="height:8px;"></div><div class="wt-num">0</div><div class="wt-lbl">-27d</div></div><div class="wt-col"><div class="wt-bar" style="height:8px;"></div><div class="wt-num">0</div><div class="wt-lbl">-20d</div></div><div class="wt-col"><div class="wt-bar" style="height:8px;"></div><div class="wt-num">0</div><div class="wt-lbl">-13d</div></div><div class="wt-col"><div class="wt-bar" style="height:40px;"></div><div class="wt-num">3</div><div class="wt-lbl">-6d</div></div></div>
+  </section>
+
+  <!-- アクティブユーザー -->
+  <section>
+    <h2>👥 アクティブテスター (2 名 / 30日)</h2>
+    <div><span class="user-chip">つばき</span><span class="user-chip">椿正玄</span></div>
+  </section>
+
+  <!-- 港トップ -->
+  <section>
+    <h2>📍 釣果が多い港 (30日)</h2>
+    <table>
+      <tr><th>順位</th><th>港・ポイント</th><th>釣果数</th></tr>
+      <tr><td>1</td><td>鴨川沖 5km</td><td><b>1</b></td></tr><tr><td>2</td><td>北ケイセン</td><td><b>1</b></td></tr><tr><td>3</td><td>九十九里</td><td><b>1</b></td></tr>
+    </table>
+  </section>
+
+  <!-- 魚種トップ -->
+  <section>
+    <h2>🐟 釣れている魚種 (30日)</h2>
+    <table>
+      <tr><th>順位</th><th>魚種</th><th>釣果数</th></tr>
+      <tr><td>1</td><td>マダイ</td><td><b>2</b></td></tr><tr><td>2</td><td>ヒラメ</td><td><b>1</b></td></tr>
+    </table>
+  </section>
+
+  <!-- 精度 -->
+  <section>
+    <h2>🎯 予測精度メトリクス (30日)</h2>
+    <p class="empty">精度メトリクス: 投稿が少なく評価不可</p>
+  </section>
+
+  <!-- 港レビュー -->
+  <section>
+    <h2>⭐ 港レビュー TOP10</h2>
+    <p class="empty">港レビュー: CHLOR_REVIEWS_CSV_URL 未設定 or 0 件</p>
+  </section>
+
+  <div class="note">
+    📌 このページは管理者用 (noindex 設定済)。<br>
+    更新は <code>python build_admin_dashboard.py</code> 実行 → publish。<br>
+    cron で日次自動更新も可。
+  </div>
+</div>
+</body>
+</html>

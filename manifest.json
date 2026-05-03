@@ -1,0 +1,33 @@
+{
+  "name": "クロア (Chlor.)",
+  "short_name": "クロア",
+  "description": "海洋衛星 × 釣果予測 — 明日どこが熱いか毎朝 7:40 更新",
+  "start_url": "/chlor-daily/",
+  "scope": "/chlor-daily/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A1530",
+  "theme_color": "#0A3D62",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "/chlor-daily/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/chlor-daily/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/chlor-daily/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["weather", "lifestyle", "navigation"]
+}

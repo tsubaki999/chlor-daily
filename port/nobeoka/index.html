@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0A3D62">
+<title>延岡港 釣り場情報 — クロア</title>
+<meta name="description" content="延岡港 (堤防) の釣り場情報。32.580°N 131.682°E。海洋衛星データ × 食物連鎖モデルで魚種別ポテンシャルを毎朝予測。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="延岡港 — クロア β 釣り場予測">
+<meta property="og:description" content="延岡港 の釣り場情報・予測スコア・港レビューをクロアで毎朝確認。">
+<meta property="og:image" content="https://tsubaki999.github.io/chlor-daily/og-image.png">
+<meta property="og:url" content="https://tsubaki999.github.io/chlor-daily/port/nobeoka/">
+<style>
+:root { --bg:#0A1530; --card:#15213F; --primary:#FBBF24; --accent:#22D3EE; --text:#FAFCFF; --mute:#94A3B8; --border:rgba(255,255,255,0.12); }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:linear-gradient(180deg,#0A1530,#0E2A5C); color:var(--text); font-family:system-ui,-apple-system,sans-serif; font-size:14px; line-height:1.7; min-height:100vh; }
+.wrap { max-width:760px; margin:0 auto; padding:24px 18px 80px; }
+.breadcrumb { font-size:11px; color:var(--mute); margin-bottom:16px; }
+.breadcrumb a { color:var(--accent); text-decoration:none; }
+.hero {
+  padding:24px 20px; margin-bottom:20px;
+  background:linear-gradient(135deg,rgba(251,191,36,0.10),rgba(34,211,238,0.08));
+  border:1px solid var(--border); border-radius:12px;
+}
+.hero h1 { font-size:28px; color:var(--primary); margin-bottom:6px; }
+.hero .meta { font-size:12px; color:var(--mute); }
+.hero .type-badge {
+  display:inline-block; padding:3px 10px; margin-left:6px;
+  background:rgba(251,191,36,0.15); color:var(--primary);
+  border-radius:999px; font-size:11px; font-weight:700;
+}
+.cta-row { display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
+.cta {
+  padding:8px 16px; border-radius:999px; text-decoration:none;
+  font-size:12px; font-weight:700; transition:transform 0.15s;
+}
+.cta-primary { background:linear-gradient(135deg,#FBBF24,#F59E0B); color:#0A1530; }
+.cta-secondary { background:rgba(34,211,238,0.15); color:var(--accent); border:1px solid var(--accent); }
+.cta:hover { transform:translateY(-1px); }
+section {
+  background:var(--card); border:1px solid var(--border); border-radius:10px;
+  padding:18px; margin-bottom:16px;
+}
+section h2 { font-size:16px; color:var(--accent); margin-bottom:10px; display:flex; gap:6px; align-items:center; }
+.amenity-pills { display:flex; flex-wrap:wrap; gap:6px; }
+.amenity-pill {
+  display:flex; gap:4px; align-items:center;
+  padding:5px 10px; background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12); border-radius:999px;
+  font-size:11.5px;
+}
+.amenity-pill .ap-icon { font-size:14px; }
+.species-list { list-style:none; padding:0; }
+.species-list li {
+  padding:8px 12px; margin:4px 0; background:rgba(0,0,0,0.20);
+  border-radius:8px; display:flex; justify-content:space-between; align-items:center;
+}
+.species-list .sp-name { font-weight:700; color:var(--primary); }
+.species-list a {
+  font-size:11px; color:var(--accent); text-decoration:none;
+  background:rgba(34,211,238,0.10); padding:3px 10px; border-radius:999px;
+}
+.setnet-list { list-style:none; padding:0; }
+.setnet-list li { padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06); font-size:13px; }
+.setnet-list .sn-info { display:block; font-size:11px; color:var(--mute); margin-top:2px; }
+.muted { color:var(--mute); font-size:12px; padding:8px 0; }
+.science { margin-top:14px; padding:12px; background:rgba(34,211,238,0.06); border-left:3px solid var(--accent); border-radius:6px; font-size:12.5px; line-height:1.7; color:#CBD5E1; }
+.science strong { color:var(--accent); }
+.footer { margin-top:32px; padding-top:20px; border-top:1px solid var(--border); text-align:center; font-size:11px; color:var(--mute); }
+.footer a { color:var(--primary); text-decoration:none; margin:0 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="breadcrumb">
+<a href="/chlor-daily/">クロア</a> &raquo;
+<a href="/chlor-daily/zones/kyushu_east/">九州東岸</a> &raquo;
+延岡港
+</div>
+
+<div class="hero">
+  <h1>⚓ 延岡港</h1>
+  <div class="meta">
+    32.5800°N 131.6820°E
+    <span class="type-badge">堤防</span>
+  </div>
+  <div class="cta-row">
+    <a class="cta cta-primary" href="/chlor-daily/?port=nobeoka">🌊 クロアでこの港を見る</a>
+    <a class="cta cta-secondary" href="https://www.google.com/maps?q=32.5800,131.6820" target="_blank" rel="noopener">📍 Google Maps</a>
+    <a class="cta cta-secondary" href="https://forms.gle/bz7VQ4MhydzHkEqd7" target="_blank" rel="noopener">🎣 釣果報告</a>
+  </div>
+</div>
+
+<section>
+<h2>🏪 港の設備・アクセス</h2>
+<div class="amenity-pills"><span class="amenity-pill"><span class="ap-icon">🚻 トイレ</span><span class="ap-val">港内 公衆あり</span></span><span class="amenity-pill"><span class="ap-icon">🅿 駐車</span><span class="ap-val">あり (港P)</span></span><span class="amenity-pill"><span class="ap-icon">💡 常夜灯</span><span class="ap-val">あり</span></span><span class="amenity-pill"><span class="ap-icon">📏 水深</span><span class="ap-val">3〜10m</span></span><span class="amenity-pill"><span class="ap-icon">🏪 コンビニ</span><span class="ap-val">車5分</span></span></div>
+</section>
+
+<section>
+<h2>🐟 主なターゲット魚種</h2>
+<ul class="species-list">
+<li><span class="sp-name">ブリ</span> <a href="https://www.youtube.com/results?search_query=%E3%83%96%E3%83%AA%20%E3%82%B8%E3%82%AE%E3%83%B3%E3%82%B0%20%E9%87%A3%E3%82%8A%E6%96%B9" target="_blank" rel="noopener">📹 釣り方動画</a></li><li><span class="sp-name">ヒラマサ</span> <a href="https://www.youtube.com/results?search_query=%E3%83%92%E3%83%A9%E3%83%9E%E3%82%B5%20%E3%82%B8%E3%82%AE%E3%83%B3%E3%82%B0%20%E9%87%A3%E3%82%8A%E6%96%B9" target="_blank" rel="noopener">📹 釣り方動画</a></li><li><span class="sp-name">マグロ</span> <a href="https://www.youtube.com/results?search_query=%E3%83%9E%E3%82%B0%E3%83%AD%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%20%E9%87%A3%E3%82%8A" target="_blank" rel="noopener">📹 釣り方動画</a></li><li><span class="sp-name">カツオ</span> <a href="https://www.youtube.com/results?search_query=%E3%82%AB%E3%83%84%E3%82%AA%E9%87%A3%E3%82%8A%20%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0" target="_blank" rel="noopener">📹 釣り方動画</a></li><li><span class="sp-name">マダイ</span> <a href="https://www.youtube.com/results?search_query=%E3%83%9E%E3%83%80%E3%82%A4%E9%87%A3%E3%82%8A%20%E3%82%BF%E3%82%A4%E3%83%A9%E3%83%90%20%E5%85%A5%E9%96%80" target="_blank" rel="noopener">📹 釣り方動画</a></li><li><span class="sp-name">シイラ</span> <a href="https://www.youtube.com/results?search_query=%E3%82%B7%E3%82%A4%E3%83%A9%20%E3%83%9D%E3%83%83%E3%83%91%E3%83%BC%20%E9%87%A3%E3%82%8A%E6%96%B9" target="_blank" rel="noopener">📹 釣り方動画</a></li><li><span class="sp-name">カンパチ</span> <a href="https://www.youtube.com/results?search_query=%E3%82%AB%E3%83%B3%E3%83%91%E3%83%81%20%E9%87%A3%E3%82%8A%E6%96%B9" target="_blank" rel="noopener">📹 釣り方動画</a></li><li><span class="sp-name">イサキ</span> <a href="https://www.youtube.com/results?search_query=%E3%82%A4%E3%82%B5%E3%82%AD%20%E3%82%A6%E3%82%AD%E3%83%95%E3%82%AB%E3%82%BB%20%E9%87%A3%E3%82%8A%E6%96%B9" target="_blank" rel="noopener">📹 釣り方動画</a></li>
+</ul>
+<div class="science">
+<strong>クロアの予測ロジック:</strong>
+クロロフィル (餌) → プランクトン → 小魚 → 大型魚 の食物連鎖を、
+NASA・Copernicus 衛星データで毎朝計測。
+延岡港 周辺の <strong>SST + 潮目 + 水深</strong> をガウシアンで評価し、
+魚種別ベスト 3 ポイントを地図に表示します。
+</div>
+</section>
+
+<section>
+<h2>🕸 周辺の定置網 (10 km 以内)</h2>
+<p class="muted">10 km 以内に登録された定置網はありません</p>
+<p class="muted" style="margin-top:8px;font-size:11px;">
+⚠ 定置網位置は β 推定値。<a href="https://www.jfa.maff.go.jp/j/gyoseiken/" target="_blank" style="color:var(--accent);">水産庁 漁業権図</a> で正確な境界を確認してください。
+</p>
+</section>
+
+<section>
+<h2>🎣 釣果報告 + レビュー</h2>
+<p style="font-size:12.5px;">
+釣行された方は <a href="https://forms.gle/bz7VQ4MhydzHkEqd7" target="_blank" style="color:var(--accent);">釣果フォーム</a> で投稿ください。クロアの予測精度向上に直結します。
+</p>
+<p style="font-size:12.5px;">
+港の使い勝手・トイレ・駐車場等のレビューもお待ちしています (Form 設定後に Discord でアナウンス)。
+</p>
+</section>
+
+<div class="footer">
+<a href="/chlor-daily/">🏠 クロア β</a>
+<a href="/chlor-daily/invite/">🎁 β 招待</a>
+<a href="/chlor-daily/legal/terms.html">📋 利用規約</a>
+<a href="/chlor-daily/legal/privacy.html">🔒 プライバシー</a>
+<br><br>
+⚠ PoC・予測精度の保証なし。出船判断は当日現場・気象庁・所属マリーナの指示に従ってください。
+</div>
+
+</div>
+</body>
+</html>

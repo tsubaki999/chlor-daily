@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0A3D62">
+<meta name="robots" content="noindex,nofollow">
+<title>クロア F2 船長ダッシュボード (α プロトタイプ)</title>
+<style>
+:root {
+  --bg: #0A1530; --card: #15213F; --primary: #FBBF24; --accent: #22D3EE;
+  --text: #FAFCFF; --mute: #94A3B8; --border: rgba(255,255,255,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: linear-gradient(180deg, #0A1530, #0E2A5C);
+  color: var(--text);
+  font-family: -apple-system, system-ui, "Hiragino Sans", sans-serif;
+  font-size: 13px; line-height: 1.6; min-height: 100vh;
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 24px 18px 80px; }
+.alpha-banner {
+  margin-bottom: 24px; padding: 12px 16px;
+  background: rgba(251,191,36,0.18);
+  border: 2px solid var(--primary); border-radius: 8px;
+  font-size: 12px; color: var(--primary);
+  text-align: center; font-weight: 700;
+}
+.head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 16px; margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.head h1 { font-size: 22px; color: var(--primary); }
+.head .captain-name {
+  padding: 6px 16px; background: rgba(251,191,36,0.12);
+  border-radius: 999px; font-size: 12px; color: var(--primary); font-weight: 700;
+}
+section {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px; margin-bottom: 16px;
+}
+section h2 {
+  font-size: 15px; color: var(--accent); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.kpi {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px;
+}
+.kpi-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px; text-align: center;
+}
+.kpi-num { font-size: 28px; font-weight: 900; color: var(--primary); }
+.kpi-lbl { font-size: 10px; color: var(--mute); margin-top: 2px; }
+
+.line-preview {
+  margin-top: 12px; padding: 14px;
+  background: rgba(46,189,89,0.10); /* LINE 緑 */
+  border: 1px solid rgba(46,189,89,0.30);
+  border-radius: 8px; font-size: 12px; line-height: 1.6;
+  white-space: pre-wrap; font-family: "Hiragino Sans", monospace;
+}
+.line-preview .line-h { color: rgba(46,189,89,0.9); font-weight: 700; margin-bottom: 6px; }
+.line-actions { display: flex; gap: 8px; margin-top: 10px; }
+.line-btn {
+  flex: 1; padding: 8px 14px;
+  background: rgba(46,189,89,0.20); color: rgb(46,189,89);
+  border: 1px solid rgba(46,189,89,0.40); border-radius: 6px;
+  font-weight: 700; cursor: pointer; font-family: inherit; font-size: 12px;
+}
+.line-btn:hover { background: rgba(46,189,89,0.30); }
+
+.cust-list {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px; margin-top: 10px;
+}
+.cust-card {
+  padding: 10px; background: rgba(0,0,0,0.20);
+  border-radius: 8px; border-left: 3px solid var(--accent);
+}
+.cust-card .cust-name { font-weight: 700; font-size: 13px; }
+.cust-card .cust-meta { font-size: 10px; color: var(--mute); margin-top: 2px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; padding: 6px 10px; background: rgba(96,165,250,0.10); color: #93C5FD; font-weight: 700; }
+td { padding: 6px 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+.note {
+  margin-top: 24px; padding: 14px;
+  background: rgba(34,211,238,0.08);
+  border: 1px solid rgba(34,211,238,0.30); border-radius: 8px;
+  font-size: 11.5px; line-height: 1.7;
+}
+.note h4 { color: var(--accent); font-size: 13px; margin-bottom: 6px; }
+
+@media (max-width: 540px) {
+  .kpi { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="alpha-banner">
+    🚢 これは F2 船長プラン α プロトタイプです。<br>
+    実装は β 期間中、5 名の α 船長で検証 → 2026/12 ローンチ予定。
+  </div>
+
+  <div class="head">
+    <h1>⚓ XX 丸 — 椿船長</h1>
+    <span class="captain-name">F2 Solo (¥3,800/月)</span>
+  </div>
+
+  <!-- KPI -->
+  <div class="kpi">
+    <div class="kpi-card"><div class="kpi-num">24</div><div class="kpi-lbl">登録顧客</div></div>
+    <div class="kpi-card"><div class="kpi-num">6/8</div><div class="kpi-lbl">明日 5/3 予約</div></div>
+    <div class="kpi-card"><div class="kpi-num">12</div><div class="kpi-lbl">先月 出船日</div></div>
+    <div class="kpi-card"><div class="kpi-num">¥420K</div><div class="kpi-lbl">先月 売上</div></div>
+  </div>
+
+  <!-- 明日の自動配信文 -->
+  <section>
+    <h2>📢 明日 5/3 (日) 配信ドラフト</h2>
+    <div class="line-preview">
+<span class="line-h">🎣 XX 丸 明日 5/3 (日) 出船情報</span>
+
+⛅ 曇り (降水 30%) 🌊 1.2m 💨 3.5m/s
+✅ 出船 GO
+
+【ターゲット】
+1. マダイ 0.85 (春乗っ込み)
+2. イサキ 0.78 (梅雨入り直前)
+3. メジナ 0.72 (磯回り)
+
+【ベスト時間帯】朝マズメ 04:18-05:48
+【船代】¥12,000、餌付き
+【現在予約】6/8 名 (空きあり)
+
+📅 ご予約 LINE → bot 相談コマンド「/予約」</div>
+    <div class="line-actions">
+      <button class="line-btn">📱 LINE グループに送信</button>
+      <button class="line-btn">✏ 編集してから送信</button>
+      <button class="line-btn">⏰ 朝 7:00 自動配信に設定</button>
+    </div>
+  </section>
+
+  <!-- 顧客リスト -->
+  <section>
+    <h2>👥 登録顧客 (24 名)</h2>
+    <div class="cust-list">
+      <div class="cust-card">
+        <div class="cust-name">田中様</div>
+        <div class="cust-meta">来船 8 回 · 最終 4/27</div>
+      </div>
+      <div class="cust-card">
+        <div class="cust-name">山本様</div>
+        <div class="cust-meta">来船 3 回 · 最終 4/22</div>
+      </div>
+      <div class="cust-card">
+        <div class="cust-name">鈴木様</div>
+        <div class="cust-meta">来船 12 回 · 最終 4/30</div>
+      </div>
+      <div class="cust-card">
+        <div class="cust-name">佐藤様</div>
+        <div class="cust-meta">来船 1 回 · 最終 4/15</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 直近の釣果 -->
+  <section>
+    <h2>🎣 直近の釣果報告 (お客さん投稿)</h2>
+    <table>
+      <tr><th>日付</th><th>魚種</th><th>サイズ</th><th>場所</th><th>報告者</th></tr>
+      <tr><td>2026-04-30</td><td>マダイ</td><td>90cm</td><td>北ケイセン</td><td>椿正玄</td></tr>
+      <tr><td>2026-04-30</td><td>マダイ</td><td>60cm</td><td>鴨川沖 5km</td><td>椿正玄</td></tr>
+      <tr><td>2026-04-29</td><td>ヒラメ</td><td>50cm</td><td>九十九里</td><td>つばき</td></tr>
+    </table>
+  </section>
+
+  <!-- 月次レポート CTA -->
+  <section>
+    <h2>📊 月次レポート</h2>
+    <p style="color:var(--mute);font-size:12px;margin-bottom:12px;">
+      毎月末に自動生成される PDF を、登録顧客に LINE 配信できます。<br>
+      お客様への振り返り資料 + リピート促進に。
+    </p>
+    <div class="line-actions">
+      <button class="line-btn">📄 4 月号 PDF をダウンロード</button>
+      <button class="line-btn">📤 顧客全員に LINE 配信 (24 名)</button>
+    </div>
+  </section>
+
+  <!-- 案内 -->
+  <div class="note">
+    <h4>🔧 α 試験参加について</h4>
+    <p>
+      F2 船長プランの α 試験 (2026 年 9-11 月) に参加いただける船長さんを募集しています。<br>
+      期間中は完全無料 + LINE bot サポート、ローンチ時 6 ヶ月無料 + 生涯 30% OFF。<br>
+      興味あれば <strong>tsubakim@monogatari.co.jp</strong> までご連絡ください。
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
